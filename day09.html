@@ -1,7 +1,7 @@
 <!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Day 9 赔款、鲁尔与美国资本的循环</title><style>/* layout concept: a map-room atlas. Quiet slate ground; five layer colours carry meaning (fact, explanation, narrative, consequence, today). */
 :root{
   --bg:#f1f3f6;--surface:#ffffff;--surface2:#e8ecf1;--ink:#1a2330;--ink2:#515d6d;--rule:#d3d9e1;
-  --fact:#1d5fa8;--expl:#a85f0c;--narr:#7a3b8f;--cons:#16766f;--today:#4a5668;
+  --fact:#1d5fa8;--expl:#a85f0c;--narr:#7a3b8f;--cons:#16766f;--today:#4a5668;--prim:#8a5a2b;
   --ok:#2c7a4b;--self:#2f6f9a;--infer:#a85f0c;--split:#b3392f;--nar:#7a3b8f;--none:#6b7280;
   --s-blue:#2f6fb5;--s-teal:#13857c;--s-purple:#7a54b8;--s-coral:#c8553a;--s-amber:#b27a12;--s-pink:#b8447a;--s-green:#4b8a2c;--s-gray:#6b7280;
   --serif:"Noto Serif SC","Songti SC","Source Han Serif SC",serif;
@@ -10,13 +10,13 @@
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#10151c;--surface:#171e28;--surface2:#1f2835;--ink:#e5e9ef;--ink2:#9ba7b8;--rule:#2b3646;
-  --fact:#6eaaf0;--expl:#e3a458;--narr:#c58ddb;--cons:#5cc5bb;--today:#a3afc0;
+  --fact:#6eaaf0;--expl:#e3a458;--narr:#c58ddb;--cons:#5cc5bb;--today:#a3afc0;--prim:#d1a574;
   --ok:#6cc58d;--self:#74b3dd;--infer:#e3a458;--split:#ef8579;--nar:#c58ddb;--none:#9aa3b0;
   --s-blue:#6aa6ec;--s-teal:#4cc3b8;--s-purple:#b093e8;--s-coral:#ee8a70;--s-amber:#e0b24d;--s-pink:#ea7fb0;--s-green:#8ac86a;--s-gray:#9aa3b0;
   color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#10151c;--surface:#171e28;--surface2:#1f2835;--ink:#e5e9ef;--ink2:#9ba7b8;--rule:#2b3646;
-  --fact:#6eaaf0;--expl:#e3a458;--narr:#c58ddb;--cons:#5cc5bb;--today:#a3afc0;
+  --fact:#6eaaf0;--expl:#e3a458;--narr:#c58ddb;--cons:#5cc5bb;--today:#a3afc0;--prim:#d1a574;
   --ok:#6cc58d;--self:#74b3dd;--infer:#e3a458;--split:#ef8579;--nar:#c58ddb;--none:#9aa3b0;
   --s-blue:#6aa6ec;--s-teal:#4cc3b8;--s-purple:#b093e8;--s-coral:#ee8a70;--s-amber:#e0b24d;--s-pink:#ea7fb0;--s-green:#8ac86a;--s-gray:#9aa3b0;
   color-scheme:dark}
@@ -58,6 +58,7 @@ li{margin-bottom:7px}
 .lh .ln{display:block;font:700 20px/1.3 var(--serif);color:var(--c)}
 .lh .lt{display:block;font:500 12px/1.4 var(--mono);color:var(--ink2);margin-top:2px}
 .lh .lq{display:block;font-size:13px;line-height:1.5;color:var(--ink2);margin-top:8px}
+.prim .lh{--c:var(--prim)}.timebar .prim{--c:var(--prim)}
 .fact .lh{--c:var(--fact)}.expl .lh{--c:var(--expl)}.narr .lh{--c:var(--narr)}.cons .lh{--c:var(--cons)}.today .lh{--c:var(--today)}
 .timebar .fact{--c:var(--fact)}.timebar .expl{--c:var(--expl)}.timebar .narr{--c:var(--narr)}.timebar .cons{--c:var(--cons)}.timebar .today{--c:var(--today)}
 .lb{min-width:0;max-width:41em}
@@ -118,7 +119,11 @@ button.mark[aria-pressed="true"]{border-color:var(--ok);color:var(--ok)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 .fig .sv{overflow-x:auto}
 .fig .sv svg{min-width:560px}
-</style></head><body><div class="wrap"><div class="top"><a class="brand" href="index.html">世界格局百年课</a><a class="nl" href="index.html" aria-current="page">课程</a><a class="nl" href="method.html">读法</a><a class="nl" href="oil.html">石油与家族</a><a class="nl" href="grievances.html">宿怨地图</a><a class="nl" href="reading.html">阅读</a><a class="nl" href="verification.html">核查记录</a></div><header class="dayhead"><div class="daynum">DAY 09 / 60 · 阶段 2</div><h1>赔款、鲁尔与美国资本的循环</h1><p class="meta">1921–1932 · 约 10 分钟 · 战间期</p></header><nav class="timebar" aria-label="本日结构"><a class="fact" style="flex:2 1 0" href="#fact">事实层<span>2′</span></a><a class="expl" style="flex:3 1 0" href="#expl">解释层<span>3′</span></a><a class="narr" style="flex:2 1 0" href="#narr">叙述层<span>2′</span></a><a class="cons" style="flex:2 1 0" href="#cons">后果<span>2′</span></a><a class="today" style="flex:1 1 0" href="#today">今天<span>1′</span></a></nav><section class="layer fact" id="fact"><div class="lh"><span class="ln">事实层</span><span class="lt">2 分钟</span><span class="lq">谁、何时、做了什么。可以回到文件核对。</span></div><div class="lb"><p class="src">依据：德国与协约国的外交文件、道斯计划与杨格计划文本、德国央行与国际清算银行记录。</p><ul><li>1921年伦敦时间表确定赔款总额；1923年1月，德国被认定拖欠实物赔款，法国与比利时军队占领鲁尔。<span class="tag t-ok">确证</span></li><li>德国政府号召消极抵抗并靠印钞支付工人工资；1923年11月马克对美元汇率达到约4万亿马克兑1美元的峰值，随后发行地租马克稳定币值。<span class="tag t-ok">确证</span></li><li>1924年道斯计划：重新安排年度支付，并向德国提供约8亿金马克的外国贷款（主要在美国和英国发行）；外国军队在1925年8月撤出鲁尔。<span class="tag t-ok">确证</span></li><li>1929年拟定杨格计划，1930年1月海牙会议通过：把赔款期限延长到1988年；国际清算银行1930年成立。<span class="tag t-ok">确证</span></li><li>1931年5月奥地利信贷银行倒闭，银行危机蔓延；6月胡佛宣布暂停战争债务一年；1932年洛桑会议实际上终止了对德赔款。<span class="tag t-ok">确证</span></li></ul></div></section>
+
+.tlf{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.tlf button{font:inherit;font-size:14px;padding:6px 12px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);border-radius:8px;cursor:pointer}
+.tlf button[aria-pressed="true"]{background:var(--fact);border-color:var(--fact);color:var(--bg)}
+</style></head><body><div class="wrap"><div class="top"><a class="brand" href="index.html">世界格局百年课</a><a class="nl" href="index.html" aria-current="page">课程</a><a class="nl" href="method.html">读法</a><a class="nl" href="oil.html">石油与家族</a><a class="nl" href="grievances.html">宿怨地图</a><a class="nl" href="reading.html">阅读</a><a class="nl" href="timeline.html">时间线</a><a class="nl" href="verification.html">核查记录</a></div><header class="dayhead"><div class="daynum">DAY 09 / 60 · 阶段 2</div><h1>赔款、鲁尔与美国资本的循环</h1><p class="meta">1921–1932 · 约 10 分钟 · 战间期</p></header><nav class="timebar" aria-label="本日结构"><a class="fact" style="flex:2 1 0" href="#fact">事实层<span>2′</span></a><a class="expl" style="flex:3 1 0" href="#expl">解释层<span>3′</span></a><a class="narr" style="flex:1 1 0" href="#narr">叙述层<span>1′</span></a><a class="cons" style="flex:2 1 0" href="#cons">后果<span>2′</span></a><a class="today" style="flex:1 1 0" href="#today">今天<span>1′</span></a></nav><section class="layer fact" id="fact"><div class="lh"><span class="ln">事实层</span><span class="lt">2 分钟</span><span class="lq">谁、何时、做了什么。可以回到文件核对。</span></div><div class="lb"><p class="src">依据：德国与协约国的外交文件、道斯计划与杨格计划文本、德国央行与国际清算银行记录。</p><ul><li>1921年伦敦时间表确定赔款总额；1923年1月，德国被认定拖欠实物赔款，法国与比利时军队占领鲁尔。<span class="tag t-ok">确证</span></li><li>德国政府号召消极抵抗并靠印钞支付工人工资；1923年11月马克对美元汇率达到约4万亿马克兑1美元的峰值，随后发行地租马克稳定币值。<span class="tag t-ok">确证</span></li><li>1924年道斯计划：重新安排年度支付，并向德国提供约8亿金马克的外国贷款（主要在美国和英国发行）；外国军队在1925年8月撤出鲁尔。<span class="tag t-ok">确证</span></li><li>1929年拟定杨格计划，1930年1月海牙会议通过：把赔款期限延长到1988年；国际清算银行1930年成立。<span class="tag t-ok">确证</span></li><li>1931年5月奥地利信贷银行倒闭，银行危机蔓延；6月胡佛宣布暂停战争债务一年；1932年洛桑会议实际上终止了对德赔款。<span class="tag t-ok">确证</span></li></ul></div></section>
 <section class="layer expl" id="expl"><div class="lh"><span class="ln">解释层</span><span class="lt">3 分钟</span><span class="lq">为什么这样做。证据和推断分开，分歧并列。</span></div><div class="lb"><p>这里要回答：法国为什么占领鲁尔？德国为什么用通货膨胀应对？</p><p>法国总理普恩加莱的做法通常被概括为：以占领矿区作为“生产性抵押”，迫使德国履行条约，否则条约会失去约束力。这是后人的概括，我没有找到他的原话。占领带来的实际收益有限，却加深了德国人的敌意，法国在1924年被迫接受道斯计划，被许多学者视为一次战略上的失败。<span class="tag t-infer">学者推断</span>德国政府的选择更复杂：消极抵抗拖垮了财政，印钞在客观上也减轻了内债负担，同时让中产阶级的储蓄化为乌有。通货膨胀是否主要是政府有意为之，还是抵抗政策失控的结果，史学界仍有争论。<span class="tag t-split">学界有分歧</span></p><p>另一个重要事实是资金的循环：美国贷款流入德国，德国用来支付赔款，英法再用来偿还对美战争债务。<span class="tag t-ok">确证</span>这个循环依赖美国持续放贷，一旦1929年之后资金停止流动，循环随即断裂。</p><figure class="fig" id="figloop"><div class="tabs" role="group" aria-label="资金循环状态">
 <button class="tb" type="button" data-i="0" aria-pressed="true">1924–1929：资金在转</button>
 <button class="tb" type="button" data-i="1" aria-pressed="false">1929年后：贷款停止</button></div>
@@ -142,7 +147,7 @@ function show(i){document.getElementById("l1").setAttribute("class",i?"ar cut":"
 for(var j=0;j<bs.length;j++)bs[j].onclick=(function(j){return function(){show(j)}})(j);
 show(0);})();</script></figure>
 </div></section>
-<section class="layer narr" id="narr"><div class="lh"><span class="ln">叙述层</span><span class="lt">2 分钟</span><span class="lq">各方今天怎么讲这件事，用来做什么。</span></div><div class="lb"><p>德国的主流叙述把1923年的恶性通胀归咎于法国占领和条约，淡化了政府自身的政策选择。法国的叙述强调德国“蓄意不履约”。英美的叙述则倾向于把赔款本身说成问题的根源。这些叙述后来都被用于政治动员，尤其是1930年代德国的极端政党。<span class="tag t-nar">叙述</span></p></div></section>
+<section class="layer narr" id="narr"><div class="lh"><span class="ln">叙述层</span><span class="lt">1 分钟</span><span class="lq">各方今天怎么讲这件事，用来做什么。</span></div><div class="lb"><p>德国的主流叙述把1923年的恶性通胀归咎于法国占领和条约，淡化了政府自身的政策选择。法国的叙述强调德国“蓄意不履约”。英美的叙述则倾向于把赔款本身说成问题的根源。这些叙述后来都被用于政治动员，尤其是1930年代德国的极端政党。<span class="tag t-nar">叙述</span></p></div></section>
 <section class="layer cons" id="cons"><div class="lh"><span class="ln">后果</span><span class="lt">2 分钟</span><span class="lq">谁得到了什么，谁失去了什么。</span></div><div class="lb"><p><span class="tag t-infer">学者推断</span>第一，通胀摧毁了中产阶级对魏玛共和国的信任。第二，道斯计划之后形成了以美国资本为支点的赔款循环，让欧洲经济依赖华尔街。第三，1929年之后循环崩溃，经济危机成为下一阶段第11天要讲的内容。</p></div></section>
 <section class="layer today" id="today"><div class="lh"><span class="ln">今天与自测</span><span class="lt">1 分钟</span><span class="lq">和今天的连接，以及一道思考题。</span></div><div class="lb"><p>今天围绕债务减免、主权债务重组和制裁资产冻结的争论，仍然是同一类问题：债权人要强制执行，债务人要保留生存空间。</p><p class="think">思考题：一个债务循环依赖第三方持续放贷时，它的稳定性靠什么维持？今天最该存疑的是哪一层：把通胀只归咎于外部压力的叙述层。</p></div></section>
 <p><button class="mark" id="mk" type="button" aria-pressed="false">标记为已读</button></p><script>(function(){var K="wo-read",N=9,b=document.getElementById("mk");function g(){try{return JSON.parse(localStorage.getItem(K)||"[]")}catch(e){return[]}}function s(a){try{localStorage.setItem(K,JSON.stringify(a))}catch(e){}}function r(){var on=g().indexOf(N)>-1;b.setAttribute("aria-pressed",on);b.textContent=on?"已读":"标记为已读"}b.onclick=function(){var a=g(),i=a.indexOf(N);if(i>-1)a.splice(i,1);else a.push(N);s(a);r()};r()})()</script><div class="pn"><a href="day08.html">← Day 8</a><a href="day10.html">Day 10 →</a></div><p class="foot">讲稿依据已有史学知识撰写，经联网抽查（主要是二手资料），没有逐条核对原始档案。涉及具体数字、日期和引语的地方，请对照 <a href="reading.html">推荐阅读</a> 复核；已核查与未核实的条目见 <a href="verification.html">核查记录</a>。各段落的证据标记含义见 <a href="method.html">读法</a>。</p></div></body></html>

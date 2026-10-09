@@ -1,0 +1,126 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>时间线</title><style>/* layout concept: a map-room atlas. Quiet slate ground; five layer colours carry meaning (fact, explanation, narrative, consequence, today). */
+:root{
+  --bg:#f1f3f6;--surface:#ffffff;--surface2:#e8ecf1;--ink:#1a2330;--ink2:#515d6d;--rule:#d3d9e1;
+  --fact:#1d5fa8;--expl:#a85f0c;--narr:#7a3b8f;--cons:#16766f;--today:#4a5668;--prim:#8a5a2b;
+  --ok:#2c7a4b;--self:#2f6f9a;--infer:#a85f0c;--split:#b3392f;--nar:#7a3b8f;--none:#6b7280;
+  --s-blue:#2f6fb5;--s-teal:#13857c;--s-purple:#7a54b8;--s-coral:#c8553a;--s-amber:#b27a12;--s-pink:#b8447a;--s-green:#4b8a2c;--s-gray:#6b7280;
+  --serif:"Noto Serif SC","Songti SC","Source Han Serif SC",serif;
+  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10151c;--surface:#171e28;--surface2:#1f2835;--ink:#e5e9ef;--ink2:#9ba7b8;--rule:#2b3646;
+  --fact:#6eaaf0;--expl:#e3a458;--narr:#c58ddb;--cons:#5cc5bb;--today:#a3afc0;--prim:#d1a574;
+  --ok:#6cc58d;--self:#74b3dd;--infer:#e3a458;--split:#ef8579;--nar:#c58ddb;--none:#9aa3b0;
+  --s-blue:#6aa6ec;--s-teal:#4cc3b8;--s-purple:#b093e8;--s-coral:#ee8a70;--s-amber:#e0b24d;--s-pink:#ea7fb0;--s-green:#8ac86a;--s-gray:#9aa3b0;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10151c;--surface:#171e28;--surface2:#1f2835;--ink:#e5e9ef;--ink2:#9ba7b8;--rule:#2b3646;
+  --fact:#6eaaf0;--expl:#e3a458;--narr:#c58ddb;--cons:#5cc5bb;--today:#a3afc0;--prim:#d1a574;
+  --ok:#6cc58d;--self:#74b3dd;--infer:#e3a458;--split:#ef8579;--nar:#c58ddb;--none:#9aa3b0;
+  --s-blue:#6aa6ec;--s-teal:#4cc3b8;--s-purple:#b093e8;--s-coral:#ee8a70;--s-amber:#e0b24d;--s-pink:#ea7fb0;--s-green:#8ac86a;--s-gray:#9aa3b0;
+  color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 var(--sans);padding-inline:16px;padding-block:0 56px}
+a{color:var(--fact);text-underline-offset:3px}
+a:hover{color:var(--ink)}
+.wrap{max-width:860px;margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;padding-block:14px;border-bottom:1px solid var(--rule);margin-bottom:28px}
+.brand{font:700 17px/1.2 var(--serif);color:var(--ink);text-decoration:none;margin-right:auto}
+.top a.nl{font-size:14px;color:var(--ink2);text-decoration:none}
+.top a.nl:hover,.top a.nl[aria-current]{color:var(--ink);text-decoration:underline}
+h1,h2,h3{font-family:var(--serif);line-height:1.35;text-wrap:balance;margin:0}
+h1{font-size:clamp(26px,5vw,38px);font-weight:700}
+h2{font-size:clamp(21px,3.4vw,26px);font-weight:700;margin-top:48px;margin-bottom:14px}
+h3{font-size:18px;font-weight:700;margin-top:30px;margin-bottom:10px}
+p{margin:0 0 14px}
+.lede{font-size:18px;color:var(--ink2);max-width:36em}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+.tag{display:inline-block;font:500 12px/1.5 var(--sans);padding:0 7px;border-radius:4px;margin:0 2px;vertical-align:1px;white-space:nowrap;color:var(--c);background:color-mix(in srgb,var(--c) 13%,transparent);border:1px solid color-mix(in srgb,var(--c) 38%,transparent)}
+.t-ok{--c:var(--ok)}.t-self{--c:var(--self)}.t-infer{--c:var(--infer)}.t-split{--c:var(--split)}.t-nar{--c:var(--nar)}.t-none{--c:var(--none)}
+.tw{overflow-x:auto;margin:0 0 20px;border:1px solid var(--rule);border-radius:8px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.5px;line-height:1.6}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--rule)}
+th{font-weight:600;color:var(--ink2);background:var(--surface2);font-size:13px;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+ul,ol{padding-left:1.3em;margin:0 0 16px}
+li{margin-bottom:7px}
+/* day page */
+.dayhead{padding-bottom:18px}
+.daynum{font:500 14px/1 var(--mono);letter-spacing:.14em;color:var(--ink2);margin-bottom:12px}
+.meta{margin:12px 0 0;color:var(--ink2);font-size:14px}
+.timebar{display:flex;gap:3px;margin:22px 0 8px;position:sticky;top:0;z-index:5;background:var(--bg);padding-block:8px}
+.timebar a{display:block;text-decoration:none;font-size:12px;line-height:1.2;color:var(--ink);padding-top:7px;border-top:4px solid var(--c);white-space:nowrap;overflow:hidden;text-overflow:clip}
+.timebar a span{display:block;color:var(--ink2);font-family:var(--mono);font-size:11px}
+.layer{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 28px;padding-block:28px;border-top:1px solid var(--rule);scroll-margin-top:60px}
+.lh{--c:var(--fact)}
+.lh .ln{display:block;font:700 20px/1.3 var(--serif);color:var(--c)}
+.lh .lt{display:block;font:500 12px/1.4 var(--mono);color:var(--ink2);margin-top:2px}
+.lh .lq{display:block;font-size:13px;line-height:1.5;color:var(--ink2);margin-top:8px}
+.prim .lh{--c:var(--prim)}.timebar .prim{--c:var(--prim)}
+.fact .lh{--c:var(--fact)}.expl .lh{--c:var(--expl)}.narr .lh{--c:var(--narr)}.cons .lh{--c:var(--cons)}.today .lh{--c:var(--today)}
+.timebar .fact{--c:var(--fact)}.timebar .expl{--c:var(--expl)}.timebar .narr{--c:var(--narr)}.timebar .cons{--c:var(--cons)}.timebar .today{--c:var(--today)}
+.lb{min-width:0;max-width:41em}
+.lb .src{font-size:14px;color:var(--ink2);padding:8px 12px;background:var(--surface2);border-radius:6px;margin-bottom:16px}
+.think{margin-top:6px;padding:14px 16px;background:var(--surface);border:1px solid var(--rule);border-radius:8px}
+.pn{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:36px;padding-top:20px;border-top:1px solid var(--rule)}
+.pn a{font-size:15px}
+.pn .off{color:var(--ink2)}
+button.mark{font:inherit;font-size:14px;padding:7px 14px;border-radius:8px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);cursor:pointer}
+button.mark[aria-pressed="true"]{border-color:var(--ok);color:var(--ok)}
+:focus-visible{outline:2px solid var(--fact);outline-offset:2px}
+.foot{margin-top:48px;font-size:13px;color:var(--ink2);border-top:1px solid var(--rule);padding-top:16px}
+/* index */
+.hero{padding-block:20px 8px}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:26px 0 8px}
+.three div{padding:14px 16px;background:var(--surface);border:1px solid var(--rule);border-radius:8px;border-top:4px solid var(--c)}
+.three b{display:block;font:700 17px/1.3 var(--serif);color:var(--c);margin-bottom:4px}
+.three span{font-size:14px;color:var(--ink2);line-height:1.6;display:block}
+.btn{display:inline-block;margin-top:18px;padding:10px 18px;background:var(--fact);color:var(--bg);border-radius:8px;text-decoration:none;font-weight:500}
+.btn:hover{color:var(--bg);opacity:.9}
+.stage{border-top:1px solid var(--rule);padding-block:6px}
+.stage>summary{cursor:pointer;list-style:none;padding:14px 0;display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.stage>summary::-webkit-details-marker{display:none}
+.stage .sn{font:500 13px/1 var(--mono);color:var(--ink2);min-width:3.4em}
+.stage .st{font:700 18px/1.4 var(--serif)}
+.stage .sd{font-size:13px;color:var(--ink2);margin-left:auto}
+.sq{font-size:14.5px;color:var(--ink2);margin:0 0 10px}
+.days{list-style:none;padding:0;margin:0 0 14px}
+.days li{display:grid;grid-template-columns:3.4em minmax(0,1fr);gap:4px 14px;padding:10px 0;margin:0;border-top:1px dashed var(--rule)}
+.days .dn{font:500 14px/1.7 var(--mono);color:var(--ink2)}
+.days .dt{font-size:15px;line-height:1.7}
+.days .dt a{font-weight:600}
+.days .dm{display:block;font-size:13.5px;color:var(--ink2);margin-top:3px}
+.days .pend{font-size:12px;color:var(--ink2);border:1px solid var(--rule);border-radius:4px;padding:0 6px;margin-left:6px;white-space:nowrap}
+.days .done{color:var(--ok);margin-left:6px;font-size:13px}
+/* figures */
+.fig{margin:6px 0 20px;padding:14px;background:var(--surface);border:1px solid var(--rule);border-radius:8px}
+.fig .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.fig button.tb{font:inherit;font-size:14px;padding:6px 12px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);border-radius:8px;cursor:pointer}
+.fig button.tb[aria-pressed="true"]{background:var(--fact);border-color:var(--fact);color:var(--bg)}
+.fig .cap{font-size:14px;color:var(--ink2);margin:8px 0 0;line-height:1.7}
+.fig svg{display:block;width:100%;height:auto}
+.fig svg text{font-family:var(--sans);fill:var(--ink)}
+.fig svg .th{font-size:14px;font-weight:600}
+.fig svg .ts{font-size:12px;fill:var(--ink2)}
+.rg rect{fill:color-mix(in srgb,var(--c) 20%,var(--surface));stroke:var(--c);stroke-width:1;transition:fill .25s,stroke .25s}
+.nd rect{fill:var(--surface2);stroke:var(--ink2);stroke-width:1}
+.ar{stroke:var(--fact);stroke-width:2;fill:none}
+.ar.cut{stroke:var(--split);stroke-dasharray:5 5;opacity:.55}
+@media (max-width:700px){
+  .layer{grid-template-columns:minmax(0,1fr);gap:12px}
+  .lh{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .lh .lq{flex-basis:100%;margin-top:0}
+  .three{grid-template-columns:minmax(0,1fr)}
+  .timebar a{font-size:11px}
+  .timebar a span{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.fig .sv{overflow-x:auto}
+.fig .sv svg{min-width:560px}
+
+.tlf{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.tlf button{font:inherit;font-size:14px;padding:6px 12px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);border-radius:8px;cursor:pointer}
+.tlf button[aria-pressed="true"]{background:var(--fact);border-color:var(--fact);color:var(--bg)}
+</style></head><body><div class="wrap"><div class="top"><a class="brand" href="index.html">世界格局百年课</a><a class="nl" href="index.html">课程</a><a class="nl" href="method.html">读法</a><a class="nl" href="oil.html">石油与家族</a><a class="nl" href="grievances.html">宿怨地图</a><a class="nl" href="reading.html">阅读</a><a class="nl" href="timeline.html" aria-current="page">时间线</a><a class="nl" href="verification.html">核查记录</a></div><header class="dayhead"><div class="eyebrow">资料</div><h1>时间线（Day 1–10）</h1></header><p>本表只收录已在 Day 1–10 讲稿中出现、并经过核查的事件。“线”指三条主线：权力线（战争、同盟、边界）、资源与资本线（石油、贷款、赔款）、制度线（条约、新机构、国际规则）。精确日期以各日讲稿为准。</p><div class="tlf"><button type="button" data-k="" aria-pressed="true">全部</button><button type="button" data-k="a" aria-pressed="false">权力线</button><button type="button" data-k="b" aria-pressed="false">资源与资本线</button><button type="button" data-k="c" aria-pressed="false">制度线</button></div><div class="tw" id="tl"><table><thead><tr><th>日期</th><th>事件</th><th>课</th><th>线</th></tr></thead><tbody><tr data-l="a"><td style="white-space:nowrap">1879</td><td>德奥同盟</td><td><a href="day01.html">Day 1</a></td><td>权力</td></tr><tr data-l="a"><td style="white-space:nowrap">1882</td><td>意大利加入，形成三国同盟</td><td><a href="day01.html">Day 1</a></td><td>权力</td></tr><tr data-l="c"><td style="white-space:nowrap">1887</td><td>德俄《再保险条约》</td><td><a href="day01.html">Day 1</a></td><td>制度</td></tr><tr data-l="a"><td style="white-space:nowrap">1890</td><td>德国不再续约《再保险条约》</td><td><a href="day01.html">Day 1</a></td><td>权力</td></tr><tr data-l="a"><td style="white-space:nowrap">1894</td><td>法俄同盟正式生效</td><td><a href="day01.html">Day 1</a></td><td>权力</td></tr><tr data-l="b"><td style="white-space:nowrap">1901</td><td>达西在波斯获得石油特许</td><td><a href="day02.html">Day 2</a></td><td>资源与资本</td></tr><tr data-l="a"><td style="white-space:nowrap">1906</td><td>英国“无畔号”下水，海军竞赛升级</td><td><a href="day02.html">Day 2</a></td><td>权力</td></tr><tr data-l="a"><td style="white-space:nowrap">1907</td><td>英俄协约</td><td><a href="day02.html">Day 2</a></td><td>权力</td></tr><tr data-l="b"><td style="white-space:nowrap">1908</td><td>马斯吉德苏莱曼发现石油</td><td><a href="day02.html">Day 2</a></td><td>资源与资本</td></tr><tr data-l="b"><td style="white-space:nowrap">1909</td><td>英波石油公司成立</td><td><a href="day02.html">Day 2</a></td><td>资源与资本</td></tr><tr data-l="b"><td style="white-space:nowrap">1913</td><td>丘吉尔向议会解释英国海军燃料的选择</td><td><a href="day02.html">Day 2</a></td><td>资源与资本</td></tr><tr data-l="a"><td style="white-space:nowrap">1914-06-28</td><td>萨拉热窝刺杀</td><td><a href="day03.html">Day 3</a></td><td>权力</td></tr><tr data-l="a"><td style="white-space:nowrap">1914-07-23</td><td>奥匈对塞尔维亚发出最后通牒</td><td><a href="day03.html">Day 3</a></td><td>权力</td></tr><tr data-l="a"><td style="white-space:nowrap">1914-08-02</td><td>德国与奥斯曼签订秘密同盟条约</td><td><a href="day04.html">Day 4</a></td><td>权力</td></tr><tr data-l="a"><td style="white-space:nowrap">1914-11</td><td>奥斯曼帝国对协约国作战</td><td><a href="day04.html">Day 4</a></td><td>权力</td></tr><tr data-l="a"><td style="white-space:nowrap">1915-04-25</td><td>加里波利登陆</td><td><a href="day04.html">Day 4</a></td><td>权力</td></tr><tr data-l="c"><td style="white-space:nowrap">1915-10-24</td><td>麦克马洪致侯赛因的信</td><td><a href="day05.html">Day 5</a></td><td>制度</td></tr><tr data-l="c"><td style="white-space:nowrap">1916-05</td><td>英法赛克斯—皮科协定</td><td><a href="day05.html">Day 5</a></td><td>制度</td></tr><tr data-l="a"><td style="white-space:nowrap">1916-12</td><td>德国海军险于震透夫备忘录</td><td><a href="day06.html">Day 6</a></td><td>权力</td></tr><tr data-l="a"><td style="white-space:nowrap">1917-02-01</td><td>德国重启无限制潜艇战</td><td><a href="day06.html">Day 6</a></td><td>权力</td></tr><tr data-l="a"><td style="white-space:nowrap">1917-04-06</td><td>美国对德宣战</td><td><a href="day06.html">Day 6</a></td><td>权力</td></tr><tr data-l="c"><td style="white-space:nowrap">1917-11-02</td><td>贝尔福宣言</td><td><a href="day05.html">Day 5</a></td><td>制度</td></tr><tr data-l="c"><td style="white-space:nowrap">1917-11-08</td><td>《和平法令》（新历）</td><td><a href="day07.html">Day 7</a></td><td>制度</td></tr><tr data-l="c"><td style="white-space:nowrap">1918-03-03</td><td>《布列斯特—立陶夫斯克和约》</td><td><a href="day07.html">Day 7</a></td><td>制度</td></tr><tr data-l="a"><td style="white-space:nowrap">1918-11-11</td><td>停战</td><td><a href="day08.html">Day 8</a></td><td>权力</td></tr><tr data-l="c"><td style="white-space:nowrap">1919-06-28</td><td>《凡尔赛和约》签字</td><td><a href="day08.html">Day 8</a></td><td>制度</td></tr><tr data-l="c"><td style="white-space:nowrap">1920-08-10</td><td>《塞夫尔条约》</td><td><a href="day10.html">Day 10</a></td><td>制度</td></tr><tr data-l="b"><td style="white-space:nowrap">1921</td><td>赔款时间表定下1320亿金马克</td><td><a href="day09.html">Day 9</a></td><td>资源与资本</td></tr><tr data-l="a"><td style="white-space:nowrap">1923-01</td><td>法比占领鲁尔</td><td><a href="day09.html">Day 9</a></td><td>权力</td></tr><tr data-l="c"><td style="white-space:nowrap">1923-07-24</td><td>《洛桑条约》</td><td><a href="day10.html">Day 10</a></td><td>制度</td></tr><tr data-l="b"><td style="white-space:nowrap">1924</td><td>道威斯计划</td><td><a href="day09.html">Day 9</a></td><td>资源与资本</td></tr><tr data-l="a"><td style="white-space:nowrap">1925-12</td><td>摩苏尔归属问题的裁决</td><td><a href="day10.html">Day 10</a></td><td>权力</td></tr><tr data-l="b"><td style="white-space:nowrap">1929–30</td><td>杨格计划与国际清算银行</td><td><a href="day09.html">Day 9</a></td><td>资源与资本</td></tr><tr data-l="b"><td style="white-space:nowrap">1931-06</td><td>胡佛延付令</td><td><a href="day09.html">Day 9</a></td><td>资源与资本</td></tr></tbody></table></div><script>(function(){var bs=document.querySelectorAll(".tlf button"),rs=document.querySelectorAll("#tl tbody tr");bs.forEach(function(b){b.onclick=function(){bs.forEach(function(x){x.setAttribute("aria-pressed",x===b)});var k=b.dataset.k;rs.forEach(function(r){r.hidden=k&&r.dataset.l!==k})}})})()</script><p class="foot">讲稿依据已有史学知识撰写，经联网抽查（主要是二手资料），没有逐条核对原始档案。涉及具体数字、日期和引语的地方，请对照 <a href="reading.html">推荐阅读</a> 复核；已核查与未核实的条目见 <a href="verification.html">核查记录</a>。各段落的证据标记含义见 <a href="method.html">读法</a>。</p></div></body></html>
