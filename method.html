@@ -2,7 +2,7 @@
 :root{
   --bg:#f1f3f6;--surface:#ffffff;--surface2:#e8ecf1;--ink:#1a2330;--ink2:#515d6d;--rule:#d3d9e1;
   --fact:#1d5fa8;--expl:#a85f0c;--narr:#7a3b8f;--cons:#16766f;--today:#4a5668;--prim:#8a5a2b;
-  --ok:#2c7a4b;--self:#2f6f9a;--infer:#a85f0c;--split:#b3392f;--nar:#7a3b8f;--none:#6b7280;
+  --ok:#2c7a4b;--self:#2f6f9a;--infer:#a85f0c;--split:#b3392f;--nar:#7a3b8f;--none:#6b7280;--pend:#b3392f;
   --s-blue:#2f6fb5;--s-teal:#13857c;--s-purple:#7a54b8;--s-coral:#c8553a;--s-amber:#b27a12;--s-pink:#b8447a;--s-green:#4b8a2c;--s-gray:#6b7280;
   --serif:"Noto Serif SC","Songti SC","Source Han Serif SC",serif;
   --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
@@ -11,13 +11,13 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#10151c;--surface:#171e28;--surface2:#1f2835;--ink:#e5e9ef;--ink2:#9ba7b8;--rule:#2b3646;
   --fact:#6eaaf0;--expl:#e3a458;--narr:#c58ddb;--cons:#5cc5bb;--today:#a3afc0;--prim:#d1a574;
-  --ok:#6cc58d;--self:#74b3dd;--infer:#e3a458;--split:#ef8579;--nar:#c58ddb;--none:#9aa3b0;
+  --ok:#6cc58d;--self:#74b3dd;--infer:#e3a458;--split:#ef8579;--nar:#c58ddb;--none:#9aa3b0;--pend:#ef8579;
   --s-blue:#6aa6ec;--s-teal:#4cc3b8;--s-purple:#b093e8;--s-coral:#ee8a70;--s-amber:#e0b24d;--s-pink:#ea7fb0;--s-green:#8ac86a;--s-gray:#9aa3b0;
   color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#10151c;--surface:#171e28;--surface2:#1f2835;--ink:#e5e9ef;--ink2:#9ba7b8;--rule:#2b3646;
   --fact:#6eaaf0;--expl:#e3a458;--narr:#c58ddb;--cons:#5cc5bb;--today:#a3afc0;--prim:#d1a574;
-  --ok:#6cc58d;--self:#74b3dd;--infer:#e3a458;--split:#ef8579;--nar:#c58ddb;--none:#9aa3b0;
+  --ok:#6cc58d;--self:#74b3dd;--infer:#e3a458;--split:#ef8579;--nar:#c58ddb;--none:#9aa3b0;--pend:#ef8579;
   --s-blue:#6aa6ec;--s-teal:#4cc3b8;--s-purple:#b093e8;--s-coral:#ee8a70;--s-amber:#e0b24d;--s-pink:#ea7fb0;--s-green:#8ac86a;--s-gray:#9aa3b0;
   color-scheme:dark}
 *{box-sizing:border-box}
@@ -38,7 +38,7 @@ p{margin:0 0 14px}
 .lede{font-size:18px;color:var(--ink2);max-width:36em}
 .eyebrow{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
 .tag{display:inline-block;font:500 12px/1.5 var(--sans);padding:0 7px;border-radius:4px;margin:0 2px;vertical-align:1px;white-space:nowrap;color:var(--c);background:color-mix(in srgb,var(--c) 13%,transparent);border:1px solid color-mix(in srgb,var(--c) 38%,transparent)}
-.t-ok{--c:var(--ok)}.t-self{--c:var(--self)}.t-infer{--c:var(--infer)}.t-split{--c:var(--split)}.t-nar{--c:var(--nar)}.t-none{--c:var(--none)}
+.t-ok{--c:var(--ok)}.t-self{--c:var(--self)}.t-infer{--c:var(--infer)}.t-split{--c:var(--split)}.t-nar{--c:var(--nar)}.t-none{--c:var(--none)}.t-pend{--c:var(--pend)}
 .tw{overflow-x:auto;margin:0 0 20px;border:1px solid var(--rule);border-radius:8px;background:var(--surface)}
 table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.5px;line-height:1.6}
 th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--rule)}
@@ -123,6 +123,8 @@ button.mark[aria-pressed="true"]{border-color:var(--ok);color:var(--ok)}
 .tlf{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
 .tlf button{font:inherit;font-size:14px;padding:6px 12px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);border-radius:8px;cursor:pointer}
 .tlf button[aria-pressed="true"]{background:var(--fact);border-color:var(--fact);color:var(--bg)}
+
+.note{margin:18px 0 6px;padding:14px 16px;background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--expl);border-radius:8px;font-size:14.5px}.note ul{margin:8px 0 0}.note li{margin-bottom:5px}
 </style></head><body><div class="wrap"><div class="top"><a class="brand" href="index.html">世界格局百年课</a><a class="nl" href="index.html">课程</a><a class="nl" href="method.html" aria-current="page">读法</a><a class="nl" href="oil.html">石油与家族</a><a class="nl" href="grievances.html">宿怨地图</a><a class="nl" href="reading.html">阅读</a><a class="nl" href="timeline.html">时间线</a><a class="nl" href="verification.html">核查记录</a></div><header class="dayhead"><div class="eyebrow">读之前</div><h1>三层读法与证据分级</h1></header><p>本课程用60天、每天约10分钟（约1500–1800字），把1914年至今的世界格局讲成一条因果链。为了不把“发生了什么”“为什么发生”和“后人怎么讲”混在一起，每一天的内容都严格分成三层来写，你读的时候也按这三层去判断。</p>
 <h3>三层框架（全课程的读史方法）</h3>
 <div class="tw"><table><thead><tr><th>层</th><th>回答的问题</th><th>证据要求</th><th>最常见的陷阱</th></tr></thead><tbody><tr><td>事实层</td><td>什么时间、谁、签了什么、发生了什么</td><td>条约文本、官方档案、法院判决、统计数据、当时留下的文件</td><td>凭记忆写数字；把后来才出现的文件当成当时的事实</td></tr><tr><td>解释层</td><td>为什么这样决定；谁得利；因果有多大</td><td>当事人的日记、回忆录、会议记录；学者的研究；不同解释并列</td><td>用后来的结果倒推当时的动机；把复杂因果压成单一原因</td></tr><tr><td>叙述层</td><td>各方今天怎样讲这件事，用什么词来称呼它</td><td>看谁在讲、什么时候讲、为什么讲：官方表述、教科书、纪念活动</td><td>把某一方的讲法当成事实；把流行的简化说法当成研究结论</td></tr></tbody></table></div>
@@ -134,4 +136,4 @@ button.mark[aria-pressed="true"]{border-color:var(--ok);color:var(--ok)}
 <h3>三条分析主线</h3>
 <ul><li>权力线：均势、领土、联盟与战争决策。</li><li>资源与资本线：石油、债务、银行与大公司如何与国家利益交织。</li><li>制度线：国联、联合国、布雷顿森林、北约、核威慑等规则如何被创造，又被谁改写。</li></ul>
 <h3>需要你知道的一点</h3>
-<p>讲稿由我依据已有史学知识撰写；Day 1–10 已联网抽查并按结果修改（见第七节核查记录），但依据主要是二手资料，没有逐条核对原始档案。涉及具体数字、日期和引语的地方，建议对照第六节的书目复核；我在把握不足处会直接标<span class="tag t-infer">学者推断</span>或<span class="tag t-split">学界有分歧</span>，并把每天的内容分成事实层、解释层、叙述层，而不是写得斩钉截铁。</p><p class="foot">讲稿依据已有史学知识撰写，经联网抽查（主要是二手资料），没有逐条核对原始档案。涉及具体数字、日期和引语的地方，请对照 <a href="reading.html">推荐阅读</a> 复核；已核查与未核实的条目见 <a href="verification.html">核查记录</a>。各段落的证据标记含义见 <a href="method.html">读法</a>。</p></div></body></html>
+<p>讲稿由我依据已有史学知识撰写；Day 1–10 已联网抽查并按结果修改（见第七节核查记录），但依据主要是二手资料，没有逐条核对原始档案。涉及具体数字、日期和引语的地方，建议对照第六节的书目复核；我在把握不足处会直接标<span class="tag t-infer">学者推断</span>或<span class="tag t-split">学界有分歧</span>，并把每天的内容分成事实层、解释层、叙述层，而不是写得斩钉截铁。</p><p class="foot">本课程由 AI（Claude）协助起草，经联网抽查（主要是二手资料），没有逐条核对档案原件。涉及具体数字、日期和引语的地方，请对照 <a href="reading.html">推荐阅读</a> 复核；已核查与未核实的条目见 <a href="verification.html">核查记录</a>。各段落的证据标记含义见 <a href="method.html">读法</a>。</p></div></body></html>

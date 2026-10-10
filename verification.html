@@ -2,7 +2,7 @@
 :root{
   --bg:#f1f3f6;--surface:#ffffff;--surface2:#e8ecf1;--ink:#1a2330;--ink2:#515d6d;--rule:#d3d9e1;
   --fact:#1d5fa8;--expl:#a85f0c;--narr:#7a3b8f;--cons:#16766f;--today:#4a5668;--prim:#8a5a2b;
-  --ok:#2c7a4b;--self:#2f6f9a;--infer:#a85f0c;--split:#b3392f;--nar:#7a3b8f;--none:#6b7280;
+  --ok:#2c7a4b;--self:#2f6f9a;--infer:#a85f0c;--split:#b3392f;--nar:#7a3b8f;--none:#6b7280;--pend:#b3392f;
   --s-blue:#2f6fb5;--s-teal:#13857c;--s-purple:#7a54b8;--s-coral:#c8553a;--s-amber:#b27a12;--s-pink:#b8447a;--s-green:#4b8a2c;--s-gray:#6b7280;
   --serif:"Noto Serif SC","Songti SC","Source Han Serif SC",serif;
   --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
@@ -11,13 +11,13 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#10151c;--surface:#171e28;--surface2:#1f2835;--ink:#e5e9ef;--ink2:#9ba7b8;--rule:#2b3646;
   --fact:#6eaaf0;--expl:#e3a458;--narr:#c58ddb;--cons:#5cc5bb;--today:#a3afc0;--prim:#d1a574;
-  --ok:#6cc58d;--self:#74b3dd;--infer:#e3a458;--split:#ef8579;--nar:#c58ddb;--none:#9aa3b0;
+  --ok:#6cc58d;--self:#74b3dd;--infer:#e3a458;--split:#ef8579;--nar:#c58ddb;--none:#9aa3b0;--pend:#ef8579;
   --s-blue:#6aa6ec;--s-teal:#4cc3b8;--s-purple:#b093e8;--s-coral:#ee8a70;--s-amber:#e0b24d;--s-pink:#ea7fb0;--s-green:#8ac86a;--s-gray:#9aa3b0;
   color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#10151c;--surface:#171e28;--surface2:#1f2835;--ink:#e5e9ef;--ink2:#9ba7b8;--rule:#2b3646;
   --fact:#6eaaf0;--expl:#e3a458;--narr:#c58ddb;--cons:#5cc5bb;--today:#a3afc0;--prim:#d1a574;
-  --ok:#6cc58d;--self:#74b3dd;--infer:#e3a458;--split:#ef8579;--nar:#c58ddb;--none:#9aa3b0;
+  --ok:#6cc58d;--self:#74b3dd;--infer:#e3a458;--split:#ef8579;--nar:#c58ddb;--none:#9aa3b0;--pend:#ef8579;
   --s-blue:#6aa6ec;--s-teal:#4cc3b8;--s-purple:#b093e8;--s-coral:#ee8a70;--s-amber:#e0b24d;--s-pink:#ea7fb0;--s-green:#8ac86a;--s-gray:#9aa3b0;
   color-scheme:dark}
 *{box-sizing:border-box}
@@ -38,7 +38,7 @@ p{margin:0 0 14px}
 .lede{font-size:18px;color:var(--ink2);max-width:36em}
 .eyebrow{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
 .tag{display:inline-block;font:500 12px/1.5 var(--sans);padding:0 7px;border-radius:4px;margin:0 2px;vertical-align:1px;white-space:nowrap;color:var(--c);background:color-mix(in srgb,var(--c) 13%,transparent);border:1px solid color-mix(in srgb,var(--c) 38%,transparent)}
-.t-ok{--c:var(--ok)}.t-self{--c:var(--self)}.t-infer{--c:var(--infer)}.t-split{--c:var(--split)}.t-nar{--c:var(--nar)}.t-none{--c:var(--none)}
+.t-ok{--c:var(--ok)}.t-self{--c:var(--self)}.t-infer{--c:var(--infer)}.t-split{--c:var(--split)}.t-nar{--c:var(--nar)}.t-none{--c:var(--none)}.t-pend{--c:var(--pend)}
 .tw{overflow-x:auto;margin:0 0 20px;border:1px solid var(--rule);border-radius:8px;background:var(--surface)}
 table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.5px;line-height:1.6}
 th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--rule)}
@@ -123,9 +123,13 @@ button.mark[aria-pressed="true"]{border-color:var(--ok);color:var(--ok)}
 .tlf{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
 .tlf button{font:inherit;font-size:14px;padding:6px 12px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);border-radius:8px;cursor:pointer}
 .tlf button[aria-pressed="true"]{background:var(--fact);border-color:var(--fact);color:var(--bg)}
+
+.note{margin:18px 0 6px;padding:14px 16px;background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--expl);border-radius:8px;font-size:14.5px}.note ul{margin:8px 0 0}.note li{margin-bottom:5px}
 </style></head><body><div class="wrap"><div class="top"><a class="brand" href="index.html">世界格局百年课</a><a class="nl" href="index.html">课程</a><a class="nl" href="method.html">读法</a><a class="nl" href="oil.html">石油与家族</a><a class="nl" href="grievances.html">宿怨地图</a><a class="nl" href="reading.html">阅读</a><a class="nl" href="timeline.html">时间线</a><a class="nl" href="verification.html" aria-current="page">核查记录</a></div><header class="dayhead"><div class="eyebrow">透明度</div><h1>核查记录</h1></header><p>核查方法：逐日联网抽查日期、人名、数字、条约内容和引语。主要依据是维基百科及其所引来源，以及美国国务院历史办公室、国际清算银行等官方页面。没有直接核对条约原文、档案或学术专著，所以下面的“已核实”只代表二手来源层面。</p>
 <h3>已根据核查修改的主要条目</h3>
 <ul><li>Day 1：俾斯麦“波美拉尼亚掷弹兵”那句话各版本措辞不一，改为只取大意并注明未核实原话；不续约的理由补上与对奥匈等盟友的承诺相抵触；法俄同盟补上换文批准的时间。</li><li>Day 2：英国向国联行政院申诉的限定。</li><li>Day 3：格雷“灯火熄灭”的日期来自斯彭德1927年的回忆，改为传述；小毛奇与德皇的对话改为传述并注明来源问题；改正两个错字。</li><li>Day 4：凯末尔名言的最早出处是1950年代的回忆；匈牙利失去领土的数字改为带口径的史实，并补充地区分割的例外；修正加利西亚的方位。</li><li>Day 5：麦克马洪—侯赛因通信的时间终点改为1916年3月；赛克斯—皮科的时间线补全；贝尔福宣言中战略考虑不再写成“内阁记录显示”；克里孟梭与劳合·乔治的谈话补上“无书面记录”；改正一个错字。</li><li>Day 6：霍尔岑多夫备忘录的日期和措辞；齐默尔曼电报被英国截获的事实；《中立法》是几部而不是一部。</li><li>Day 7：布列斯特和约的领土条款更准确的表述；中央委员会表决的日期；协约国登陆的最初目的。</li><li>Day 8：马克斯的立场改写，避免读反；补上第232条。</li><li>Day 9：外国军队撤出鲁尔是1925年8月；道斯贷款的发行地；杨格计划与国际清算银行的时间；信贷银行与胡佛暂缓的先后顺序；普恩加莱的“生产性抵押”改为后人概括。</li><li>Day 10：“国内和平，世界和平”是1931年提出的，不是1921年；人口交换的数字与口径；摩苏尔裁决是1925年12月、《安卡拉条约》是1926年；开罗会议的限定。</li></ul>
-<h3>仍未能核实的条目（已在正文中保留，请读时存疑）</h3>
+<p><strong>仍未能核实的条目（</strong><strong>正文中已用<span class="tag t-pend">待核</span>标出</strong><strong>，请读时存疑）</strong></p>
 <ul><li>Day 2：政府出资约220万英镑；1919年英波协定、1941年英苏进入伊朗、1946年阿巴丹罢工、1949年补充协定、1950年沙特与阿美五五分成。</li><li>Day 4：恩维尔签约时没有完全通知内阁；达达尼尔委员会报告的具体结论。</li><li>Day 6：美国政府对协约国贷款的总额量级；战前美国是净债务国；威尔逊两次演说的具体措辞；“英国封锁没有造成美国人死亡”。</li><li>Day 8：英美对法国的安全保证条约随美国不批准而落空；1918年底大选中的民意压力。</li><li>Day 9：伦敦时间表的具体分步（总额由赔款委员会4月确定，5月伦敦最后通牒落实付款安排）；杨格计划“延长到1988年”的通行说法。</li><li>Day 10：洛桑条约后库尔德建国方案被放弃，属于学界通行判断，没有找到具体文献。</li><li>各日叙述层对各方叙述的概括，以及<span class="tag t-split">学界有分歧</span>中涉及的具体学者立场，属于常见史学叙述，没有逐条找到文献。</li></ul>
-<p>公开发表之前，建议对照第六节书目中的专著再复核一遍上面未能核实的条目。</p><p class="foot">讲稿依据已有史学知识撰写，经联网抽查（主要是二手资料），没有逐条核对原始档案。涉及具体数字、日期和引语的地方，请对照 <a href="reading.html">推荐阅读</a> 复核；已核查与未核实的条目见 <a href="verification.html">核查记录</a>。各段落的证据标记含义见 <a href="method.html">读法</a>。</p></div></body></html>
+<p>公开发表之前，建议对照第六节书目中的专著再复核一遍上面未能核实的条目。</p>
+<p><strong>一手材料的核对（2026年10月）</strong> Day 1–4、Day 9、10 的“一手材料”引文，是在浏览器里打开原始文本页面后直接摘录的英文原文（Day 3 还对照了德文原文）。Day 5–8 的引文摘自此前查到的文献库页面（Avalon、Wikisource、美国国家档案馆等），与另一个网站的译文做过对照。来源为文献库或议会记录页面，不是档案馆的扫描件，所以只代表文本层面的核对。丘吉尔的“variety and variety alone”已在 Hansard 中找到原文，不再待核。Day 1 的《再保险条约》文本所在页没有注明底本。Day 9 胡佛声明的日期，美国总统文件库登记为6月21日，另有资料作20日，正文采用前者并注明。</p>
+<p><strong>Day 9、Day 10 的补充（2026年10月）</strong> Day 9 增加了道斯计划和杨格计划的数字（来自美国国务院历史办公室的简述），以及关于“赔款是否压垮德国”的两篇文章（Sally Marks, 1978；Albrecht Ritschl, 2012）。这两篇文章我只读到摘要和脚注线索，没有读全文。Day 10 增加了《色佛尔条约》第83、88、89、94、95条和《洛桑条约》第3、37至44条的概述，已对照 BYU 档案页面上的原文；该页面的《洛桑条约》文本中没有“Kurd”一词。“因此库尔德建国方案被放弃”这一判断仍然待核。所有新增内容没有改变原有的日期和结论。</p><p class="foot">本课程由 AI（Claude）协助起草，经联网抽查（主要是二手资料），没有逐条核对档案原件。涉及具体数字、日期和引语的地方，请对照 <a href="reading.html">推荐阅读</a> 复核；已核查与未核实的条目见 <a href="verification.html">核查记录</a>。各段落的证据标记含义见 <a href="method.html">读法</a>。</p></div></body></html>
