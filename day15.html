@@ -1,0 +1,134 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Day 15 绥靖与慕尼黑：莱茵兰、奥地利、慕尼黑协定</title><style>/* layout concept: a map-room atlas. Quiet slate ground; five layer colours carry meaning (fact, explanation, narrative, consequence, today). */
+:root{
+  --bg:#f1f3f6;--surface:#ffffff;--surface2:#e8ecf1;--ink:#1a2330;--ink2:#515d6d;--rule:#d3d9e1;
+  --fact:#1d5fa8;--expl:#a85f0c;--narr:#7a3b8f;--cons:#16766f;--today:#4a5668;--prim:#8a5a2b;
+  --ok:#2c7a4b;--self:#2f6f9a;--infer:#a85f0c;--split:#b3392f;--nar:#7a3b8f;--none:#6b7280;--pend:#b3392f;
+  --s-blue:#2f6fb5;--s-teal:#13857c;--s-purple:#7a54b8;--s-coral:#c8553a;--s-amber:#b27a12;--s-pink:#b8447a;--s-green:#4b8a2c;--s-gray:#6b7280;
+  --serif:"Noto Serif SC","Songti SC","Source Han Serif SC",serif;
+  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10151c;--surface:#171e28;--surface2:#1f2835;--ink:#e5e9ef;--ink2:#9ba7b8;--rule:#2b3646;
+  --fact:#6eaaf0;--expl:#e3a458;--narr:#c58ddb;--cons:#5cc5bb;--today:#a3afc0;--prim:#d1a574;
+  --ok:#6cc58d;--self:#74b3dd;--infer:#e3a458;--split:#ef8579;--nar:#c58ddb;--none:#9aa3b0;--pend:#ef8579;
+  --s-blue:#6aa6ec;--s-teal:#4cc3b8;--s-purple:#b093e8;--s-coral:#ee8a70;--s-amber:#e0b24d;--s-pink:#ea7fb0;--s-green:#8ac86a;--s-gray:#9aa3b0;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10151c;--surface:#171e28;--surface2:#1f2835;--ink:#e5e9ef;--ink2:#9ba7b8;--rule:#2b3646;
+  --fact:#6eaaf0;--expl:#e3a458;--narr:#c58ddb;--cons:#5cc5bb;--today:#a3afc0;--prim:#d1a574;
+  --ok:#6cc58d;--self:#74b3dd;--infer:#e3a458;--split:#ef8579;--nar:#c58ddb;--none:#9aa3b0;--pend:#ef8579;
+  --s-blue:#6aa6ec;--s-teal:#4cc3b8;--s-purple:#b093e8;--s-coral:#ee8a70;--s-amber:#e0b24d;--s-pink:#ea7fb0;--s-green:#8ac86a;--s-gray:#9aa3b0;
+  color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 var(--sans);padding-inline:16px;padding-block:0 56px}
+a{color:var(--fact);text-underline-offset:3px}
+a:hover{color:var(--ink)}
+.wrap{max-width:860px;margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;padding-block:14px;border-bottom:1px solid var(--rule);margin-bottom:28px}
+.brand{font:700 17px/1.2 var(--serif);color:var(--ink);text-decoration:none;margin-right:auto}
+.top a.nl{font-size:14px;color:var(--ink2);text-decoration:none}
+.top a.nl:hover,.top a.nl[aria-current]{color:var(--ink);text-decoration:underline}
+h1,h2,h3{font-family:var(--serif);line-height:1.35;text-wrap:balance;margin:0}
+h1{font-size:clamp(26px,5vw,38px);font-weight:700}
+h2{font-size:clamp(21px,3.4vw,26px);font-weight:700;margin-top:48px;margin-bottom:14px}
+h3{font-size:18px;font-weight:700;margin-top:30px;margin-bottom:10px}
+p{margin:0 0 14px}
+.lede{font-size:18px;color:var(--ink2);max-width:36em}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+.tag{display:inline-block;font:500 12px/1.5 var(--sans);padding:0 7px;border-radius:4px;margin:0 2px;vertical-align:1px;white-space:nowrap;color:var(--c);background:color-mix(in srgb,var(--c) 13%,transparent);border:1px solid color-mix(in srgb,var(--c) 38%,transparent)}
+.t-ok{--c:var(--ok)}.t-self{--c:var(--self)}.t-infer{--c:var(--infer)}.t-split{--c:var(--split)}.t-nar{--c:var(--nar)}.t-none{--c:var(--none)}.t-pend{--c:var(--pend)}
+.tw{overflow-x:auto;margin:0 0 20px;border:1px solid var(--rule);border-radius:8px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.5px;line-height:1.6}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--rule)}
+th{font-weight:600;color:var(--ink2);background:var(--surface2);font-size:13px;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+ul,ol{padding-left:1.3em;margin:0 0 16px}
+li{margin-bottom:7px}
+/* day page */
+.dayhead{padding-bottom:18px}
+.daynum{font:500 14px/1 var(--mono);letter-spacing:.14em;color:var(--ink2);margin-bottom:12px}
+.meta{margin:12px 0 0;color:var(--ink2);font-size:14px}
+.timebar{display:flex;gap:3px;margin:22px 0 8px;position:sticky;top:0;z-index:5;background:var(--bg);padding-block:8px}
+.timebar a{display:block;text-decoration:none;font-size:12px;line-height:1.2;color:var(--ink);padding-top:7px;border-top:4px solid var(--c);white-space:nowrap;overflow:hidden;text-overflow:clip}
+.timebar a span{display:block;color:var(--ink2);font-family:var(--mono);font-size:11px}
+.layer{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 28px;padding-block:28px;border-top:1px solid var(--rule);scroll-margin-top:60px}
+.lh{--c:var(--fact)}
+.lh .ln{display:block;font:700 20px/1.3 var(--serif);color:var(--c)}
+.lh .lt{display:block;font:500 12px/1.4 var(--mono);color:var(--ink2);margin-top:2px}
+.lh .lq{display:block;font-size:13px;line-height:1.5;color:var(--ink2);margin-top:8px}
+.prim .lh{--c:var(--prim)}.timebar .prim{--c:var(--prim)}
+.fact .lh{--c:var(--fact)}.expl .lh{--c:var(--expl)}.narr .lh{--c:var(--narr)}.cons .lh{--c:var(--cons)}.today .lh{--c:var(--today)}
+.timebar .fact{--c:var(--fact)}.timebar .expl{--c:var(--expl)}.timebar .narr{--c:var(--narr)}.timebar .cons{--c:var(--cons)}.timebar .today{--c:var(--today)}
+.lb{min-width:0;max-width:41em}
+.lb .src{font-size:14px;color:var(--ink2);padding:8px 12px;background:var(--surface2);border-radius:6px;margin-bottom:16px}
+.think{margin-top:6px;padding:14px 16px;background:var(--surface);border:1px solid var(--rule);border-radius:8px}
+.pn{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:36px;padding-top:20px;border-top:1px solid var(--rule)}
+.pn a{font-size:15px}
+.pn .off{color:var(--ink2)}
+button.mark{font:inherit;font-size:14px;padding:7px 14px;border-radius:8px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);cursor:pointer}
+button.mark[aria-pressed="true"]{border-color:var(--ok);color:var(--ok)}
+:focus-visible{outline:2px solid var(--fact);outline-offset:2px}
+.foot{margin-top:48px;font-size:13px;color:var(--ink2);border-top:1px solid var(--rule);padding-top:16px}
+/* index */
+.hero{padding-block:20px 8px}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:26px 0 8px}
+.three div{padding:14px 16px;background:var(--surface);border:1px solid var(--rule);border-radius:8px;border-top:4px solid var(--c)}
+.three b{display:block;font:700 17px/1.3 var(--serif);color:var(--c);margin-bottom:4px}
+.three span{font-size:14px;color:var(--ink2);line-height:1.6;display:block}
+.btn{display:inline-block;margin-top:18px;padding:10px 18px;background:var(--fact);color:var(--bg);border-radius:8px;text-decoration:none;font-weight:500}
+.btn:hover{color:var(--bg);opacity:.9}
+.stage{border-top:1px solid var(--rule);padding-block:6px}
+.stage>summary{cursor:pointer;list-style:none;padding:14px 0;display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.stage>summary::-webkit-details-marker{display:none}
+.stage .sn{font:500 13px/1 var(--mono);color:var(--ink2);min-width:3.4em}
+.stage .st{font:700 18px/1.4 var(--serif)}
+.stage .sd{font-size:13px;color:var(--ink2);margin-left:auto}
+.sq{font-size:14.5px;color:var(--ink2);margin:0 0 10px}
+.days{list-style:none;padding:0;margin:0 0 14px}
+.days li{display:grid;grid-template-columns:3.4em minmax(0,1fr);gap:4px 14px;padding:10px 0;margin:0;border-top:1px dashed var(--rule)}
+.days .dn{font:500 14px/1.7 var(--mono);color:var(--ink2)}
+.days .dt{font-size:15px;line-height:1.7}
+.days .dt a{font-weight:600}
+.days .dm{display:block;font-size:13.5px;color:var(--ink2);margin-top:3px}
+.days .pend{font-size:12px;color:var(--ink2);border:1px solid var(--rule);border-radius:4px;padding:0 6px;margin-left:6px;white-space:nowrap}
+.days .done{color:var(--ok);margin-left:6px;font-size:13px}
+/* figures */
+.fig{margin:6px 0 20px;padding:14px;background:var(--surface);border:1px solid var(--rule);border-radius:8px}
+.fig .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.fig button.tb{font:inherit;font-size:14px;padding:6px 12px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);border-radius:8px;cursor:pointer}
+.fig button.tb[aria-pressed="true"]{background:var(--fact);border-color:var(--fact);color:var(--bg)}
+.fig .cap{font-size:14px;color:var(--ink2);margin:8px 0 0;line-height:1.7}
+.fig svg{display:block;width:100%;height:auto}
+.fig svg text{font-family:var(--sans);fill:var(--ink)}
+.fig svg .th{font-size:14px;font-weight:600}
+.fig svg .ts{font-size:12px;fill:var(--ink2)}
+.rg rect{fill:color-mix(in srgb,var(--c) 20%,var(--surface));stroke:var(--c);stroke-width:1;transition:fill .25s,stroke .25s}
+.nd rect{fill:var(--surface2);stroke:var(--ink2);stroke-width:1}
+.ar{stroke:var(--fact);stroke-width:2;fill:none}
+.ar.cut{stroke:var(--split);stroke-dasharray:5 5;opacity:.55}
+@media (max-width:700px){
+  .layer{grid-template-columns:minmax(0,1fr);gap:12px}
+  .lh{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .lh .lq{flex-basis:100%;margin-top:0}
+  .three{grid-template-columns:minmax(0,1fr)}
+  .timebar a{font-size:11px}
+  .timebar a span{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.fig .sv{overflow-x:auto}
+.fig .sv svg{min-width:560px}
+
+.tlf{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.tlf button{font:inherit;font-size:14px;padding:6px 12px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);border-radius:8px;cursor:pointer}
+.tlf button[aria-pressed="true"]{background:var(--fact);border-color:var(--fact);color:var(--bg)}
+
+.note{margin:18px 0 6px;padding:14px 16px;background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--expl);border-radius:8px;font-size:14.5px}.note ul{margin:8px 0 0}.note li{margin-bottom:5px}
+</style></head><body><div class="wrap"><div class="top"><a class="brand" href="index.html">世界格局百年课</a><a class="nl" href="index.html" aria-current="page">课程</a><a class="nl" href="method.html">读法</a><a class="nl" href="oil.html">石油与家族</a><a class="nl" href="grievances.html">宿怨地图</a><a class="nl" href="reading.html">阅读</a><a class="nl" href="timeline.html">时间线</a><a class="nl" href="verification.html">核查记录</a></div><header class="dayhead"><div class="daynum">DAY 15 / 60 · 阶段 2</div><h1>绥靖与慕尼黑：莱茵兰、奥地利、慕尼黑协定</h1><p class="meta">1936–1939 · 约 10 分钟 · 战间期</p></header><nav class="timebar" aria-label="本日结构"><a class="fact" style="flex:2 1 0" href="#fact">事实层<span>2′</span></a><a class="prim" style="flex:1 1 0" href="#prim">一手材料<span>1′</span></a><a class="expl" style="flex:3 1 0" href="#expl">解释层<span>3′</span></a><a class="narr" style="flex:1 1 0" href="#narr">叙述层<span>1′</span></a><a class="cons" style="flex:2 1 0" href="#cons">后果<span>2′</span></a><a class="today" style="flex:1 1 0" href="#today">今天<span>1′</span></a></nav><section class="layer fact" id="fact"><div class="lh"><span class="ln">事实层</span><span class="lt">2 分钟</span><span class="lq">谁、何时、做了什么。可以回到文件核对。</span></div><div class="lb"><p class="src">依据：《慕尼黑协定》文本（耶鲁大学阿瓦隆档案）、莱茵兰、奥地利与慕尼黑的二手整理。</p><ul><li>1936年3月7日，德军进入莱茵兰。兵力的说法不同：二手条目的开头写约2万人，正文提到的是19个步兵营；另有当时日记记载了从2000到5万不等的估计。德国这样做违反了《凡尔赛条约》第42、43条和《洛迦诺公约》，理由是法国批准法苏互助条约已经违反洛迦诺。法国没有动员，英国没有行动。<span class="tag t-ok">确证</span>（二手整理。）</li><li>1938年3月9日，奥地利总理舒施尼格宣布13日举行公投；11日希特勒要求取消公投并要求他辞职；12日德军进入奥地利，奥地利军队接到命令不抵抗；13日合并生效。1938年4月10日的公投官方结果为99.7%赞成，但投票既不自由也不保密。3月14日，张伯伦在下院说，除非有人准备使用武力，否则阻止不了事情的发生，这不会改变政府的欧洲政策。<span class="tag t-ok">确证</span>（二手整理。）</li><li>1938年9月22日至24日，张伯伦与希特勒在巴特戈德斯贝格会谈；24日希特勒提出备忘录，要求在9月28日前割让苏台德地区，否则使用武力。<span class="tag t-ok">确证</span>（二手整理。）</li><li>1938年9月29日至30日，慕尼黑会议：希特勒、张伯伦、达拉第、墨索里尼签署协定。捷克斯洛伐克代表虽然在慕尼黑，却没有被允许参加会议；苏联也没有参加。<span class="tag t-ok">确证</span></li><li>30日，张伯伦回到伦敦后说：“我相信这是我们这个时代的和平”（I believe it is peace for our time）。<span class="tag t-ok">确证</span>（二手整理。）</li><li>捷克斯洛伐克失去波希米亚、摩拉维亚和西里西亚面积的约38%、约70%的钢铁工业和约350万公民。波兰在1938年10月2日并入泰辛地区的一部分。匈牙利在1938年11月2日的第一次维也纳裁决中得到约1.19万平方公里的土地。<span class="tag t-ok">确证</span>（二手整理。）</li><li>苏联表示，如果红军能通过波兰和罗马尼亚领土，它愿意援助捷克斯洛伐克；波兰和罗马尼亚都拒绝。<span class="tag t-ok">确证</span>（二手整理。）</li><li>1939年3月15日，德国占领捷克其余地区，建立波希米亚和摩拉维亚保护国。<span class="tag t-ok">确证</span></li></ul></div></section>
+<section class="layer expl" id="expl"><div class="lh"><span class="ln">解释层</span><span class="lt">3 分钟</span><span class="lq">为什么这样做。证据和推断分开，分歧并列。</span></div><div class="lb"><p>这里要回答：张伯伦为什么选择让步？丘吉尔为什么反对？</p><p>先看莱茵兰。二手材料的记述是：法国当时面临财政危机和即将到来的选举。甘末林说，要采取行动必须全面动员并获得英国支持。英国首相鲍德温说，民意不会支持使用武力。<span class="tag t-self">当事人自述</span>许多英国人把这件事看作德国进入自己的领土。德国军官后来说，如果法军行动，德军将不得不撤退。二手材料还写到，布伦堡曾劝希特勒撤回，希特勒几乎下令，但被人说服继续。<span class="tag t-self">当事人自述</span>二手页面列出了几种对法国不动的解释：“颓废论”（法国缺乏战斗意志）、经济和军事评估的限制（舒克尔等），以及近年的研究（里普斯曼与列维）认为英法的民意和精英都强烈反对干预，且两国军队都没有准备好。<span class="tag t-split">学界有分歧</span>以上学者的立场来自二手页面的概述，本课程没有逐篇核对。<span class="tag t-pend">待核</span></p><p>再看慕尼黑。张伯伦的考虑，课程大纲列为再武装进度、公众舆论、自治领态度。其中，所查材料能支持的是：张伯伦在1938年3月14日说过，除非有人准备使用武力，否则阻止不了事情发生；1936年莱茵兰事件时，鲍德温已说过民意不支持使用武力。关于“再武装进度”，所查页面只引用了一位德国将军（贝克）的判断：英国的再武装要到1941—42年才会见效。这是对手的判断，不是英国的内部文件。<span class="tag t-self">当事人自述</span>“自治领态度”这一项，本课程没有找到可核对的材料。<span class="tag t-pend">待核</span></p><p>“绥靖的目的是争取时间”，这是为慕尼黑辩护的常见说法，学界对这一点有争论。<span class="tag t-split">学界有分歧</span>本课程尚未核对到具体学者的论证。<span class="tag t-pend">待核</span></p><p>丘吉尔的反对见下面的一手材料。所查页面还列出了另一个在当时就能看到的事实：苏联愿意援助，但条件是红军能过境，波兰和罗马尼亚都拒绝。这就是为什么没有形成英法苏共同立场。<span class="tag t-ok">确证</span></p></div></section>
+<section class="layer prim" id="prim"><div class="lh"><span class="ln">一手材料</span><span class="lt">1 分钟</span><span class="lq">原文怎么写。只引已核对的原文；读法写在引文之后。</span></div><div class="lb"><p>来源一：《慕尼黑协定》，1938年9月29日（耶鲁大学阿瓦隆档案页面的英文文本）。第一条：撤离从10月1日开始（“The evacuation will begin on 1st October.”）。第二条：英国、法国和意大利同意，撤离将在10月10日前完成，捷克斯洛伐克政府负责执行撤离。第三条：撤离的具体条件由一个国际委员会详细规定，委员会成员包括德国、英国、法国、意大利和捷克斯洛伐克。第五条：国际委员会决定哪些地区举行公投，并定下不晚于11月底的公投日期。（本课程拟译；第二条和第五条我只核对了大意，没有核对到逐字原文。<span class="tag t-pend">待核</span>）读法：四个签字方里没有捷克斯洛伐克，而条文要求捷克斯洛伐克政府负责执行。所查页面说，这份文件没有单独的担保条款。</p><p>来源二：丘吉尔在1938年10月5日的下院演说（经丘吉尔中心网站摘录，没有核对到议会记录原页。<span class="tag t-pend">待核</span>）他说，英国“遭受了彻底的、不折不扣的失败”（a total and unmitigated defeat），法国的失败更大；“沉默的、哀痛的、被抛弃的、破碎的捷克斯洛伐克退入黑暗”；“这只是清算的开始”。（本课程拟译。）读法：丘吉尔是在下院公开反对政府的议员，这是他的判断和预测，不是后来的结果。他判断的“破碎”和“被并吞”，在5个半月后（1939年3月15日）在事实层中得到了印证。</p></div></section>
+<section class="layer narr" id="narr"><div class="lh"><span class="ln">叙述层</span><span class="lt">1 分钟</span><span class="lq">各方今天怎么讲这件事，用来做什么。</span></div><div class="lb"><p>后世常把“慕尼黑”当作“对侵略让步必然失败”的寓言，把“绥靖”当作软弱的同义词。这个比喻简化了当时的条件：莱茵兰、奥地利、慕尼黑三次冒险的确都没有遇到军事抵抗，但民意、军事准备和列国关系的条件各不相同。张伯伦那句“我相信这是我们这个时代的和平”，后来成为对他的讽刺符号。<span class="tag t-nar">叙述</span></p></div></section>
+<section class="layer cons" id="cons"><div class="lh"><span class="ln">后果</span><span class="lt">2 分钟</span><span class="lq">谁得到了什么，谁失去了什么。</span></div><div class="lb"><p><span class="tag t-infer">学者推断</span>慕尼黑之后，捷克斯洛伐克失去了大部分边境防线和工业基础，德国得以在1939年3月占领其余地区。英法与苏联的关系也因这次会议排除苏联而变得更难，这将在下一天（Day 16）展开。</p></div></section>
+<section class="layer today" id="today"><div class="lh"><span class="ln">今天与自测</span><span class="lt">1 分钟</span><span class="lq">和今天的连接，以及一道思考题。</span></div><div class="lb"><p>今天说“不要重演慕尼黑”的人，往往把一个特定的历史情境当作通用规则。</p><p class="think">思考题：如果你是1938年9月的张伯伦，手上有前文列出的那些信息，你会怎样在“再武装进度”和“捷克斯洛伐克的防御”之间权衡？哪些信息你当时根本拿不到？</p></div></section>
+<p><button class="mark" id="mk" type="button" aria-pressed="false">标记为已读</button></p><script>(function(){var K="wo-read",N=15,b=document.getElementById("mk");function g(){try{return JSON.parse(localStorage.getItem(K)||"[]")}catch(e){return[]}}function s(a){try{localStorage.setItem(K,JSON.stringify(a))}catch(e){}}function r(){var on=g().indexOf(N)>-1;b.setAttribute("aria-pressed",on);b.textContent=on?"已读":"标记为已读"}b.onclick=function(){var a=g(),i=a.indexOf(N);if(i>-1)a.splice(i,1);else a.push(N);s(a);r()};r()})()</script><div class="pn"><a href="day14.html">← Day 14</a><a href="day16.html">Day 16 →</a></div><p class="foot">本课程由 AI（Claude）协助起草，经联网抽查（主要是二手资料），没有逐条核对档案原件。涉及具体数字、日期和引语的地方，请对照 <a href="reading.html">推荐阅读</a> 复核；已核查与未核实的条目见 <a href="verification.html">核查记录</a>。各段落的证据标记含义见 <a href="method.html">读法</a>。</p></div></body></html>
