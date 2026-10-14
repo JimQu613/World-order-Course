@@ -1,0 +1,138 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Day 48 1991：苏联解体与布达佩斯备忘录</title><style>/* layout concept: a map-room atlas. Quiet slate ground; five layer colours carry meaning (fact, explanation, narrative, consequence, today). */
+:root{
+  --bg:#f1f3f6;--surface:#ffffff;--surface2:#e8ecf1;--ink:#1a2330;--ink2:#515d6d;--rule:#d3d9e1;
+  --fact:#1d5fa8;--expl:#a85f0c;--narr:#7a3b8f;--cons:#16766f;--today:#4a5668;--prim:#8a5a2b;
+  --ok:#2c7a4b;--self:#2f6f9a;--infer:#a85f0c;--split:#b3392f;--nar:#7a3b8f;--none:#6b7280;--pend:#b3392f;
+  --s-blue:#2f6fb5;--s-teal:#13857c;--s-purple:#7a54b8;--s-coral:#c8553a;--s-amber:#b27a12;--s-pink:#b8447a;--s-green:#4b8a2c;--s-gray:#6b7280;
+  --serif:"Noto Serif SC","Songti SC","Source Han Serif SC",serif;
+  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10151c;--surface:#171e28;--surface2:#1f2835;--ink:#e5e9ef;--ink2:#9ba7b8;--rule:#2b3646;
+  --fact:#6eaaf0;--expl:#e3a458;--narr:#c58ddb;--cons:#5cc5bb;--today:#a3afc0;--prim:#d1a574;
+  --ok:#6cc58d;--self:#74b3dd;--infer:#e3a458;--split:#ef8579;--nar:#c58ddb;--none:#9aa3b0;--pend:#ef8579;
+  --s-blue:#6aa6ec;--s-teal:#4cc3b8;--s-purple:#b093e8;--s-coral:#ee8a70;--s-amber:#e0b24d;--s-pink:#ea7fb0;--s-green:#8ac86a;--s-gray:#9aa3b0;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10151c;--surface:#171e28;--surface2:#1f2835;--ink:#e5e9ef;--ink2:#9ba7b8;--rule:#2b3646;
+  --fact:#6eaaf0;--expl:#e3a458;--narr:#c58ddb;--cons:#5cc5bb;--today:#a3afc0;--prim:#d1a574;
+  --ok:#6cc58d;--self:#74b3dd;--infer:#e3a458;--split:#ef8579;--nar:#c58ddb;--none:#9aa3b0;--pend:#ef8579;
+  --s-blue:#6aa6ec;--s-teal:#4cc3b8;--s-purple:#b093e8;--s-coral:#ee8a70;--s-amber:#e0b24d;--s-pink:#ea7fb0;--s-green:#8ac86a;--s-gray:#9aa3b0;
+  color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 var(--sans);padding-inline:16px;padding-block:0 56px}
+a{color:var(--fact);text-underline-offset:3px}
+a:hover{color:var(--ink)}
+.wrap{max-width:860px;margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;padding-block:14px;border-bottom:1px solid var(--rule);margin-bottom:28px}
+.brand{font:700 17px/1.2 var(--serif);color:var(--ink);text-decoration:none;margin-right:auto}
+.top a.nl{font-size:14px;color:var(--ink2);text-decoration:none}
+.top a.nl:hover,.top a.nl[aria-current]{color:var(--ink);text-decoration:underline}
+h1,h2,h3{font-family:var(--serif);line-height:1.35;text-wrap:balance;margin:0}
+h1{font-size:clamp(26px,5vw,38px);font-weight:700}
+h2{font-size:clamp(21px,3.4vw,26px);font-weight:700;margin-top:48px;margin-bottom:14px}
+h3{font-size:18px;font-weight:700;margin-top:30px;margin-bottom:10px}
+p{margin:0 0 14px}
+.lede{font-size:18px;color:var(--ink2);max-width:36em}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+.tag{display:inline-block;font:500 12px/1.5 var(--sans);padding:0 7px;border-radius:4px;margin:0 2px;vertical-align:1px;white-space:nowrap;color:var(--c);background:color-mix(in srgb,var(--c) 13%,transparent);border:1px solid color-mix(in srgb,var(--c) 38%,transparent)}
+.t-ok{--c:var(--ok)}.t-self{--c:var(--self)}.t-infer{--c:var(--infer)}.t-split{--c:var(--split)}.t-nar{--c:var(--nar)}.t-none{--c:var(--none)}.t-pend{--c:var(--pend)}
+.tw{overflow-x:auto;margin:0 0 20px;border:1px solid var(--rule);border-radius:8px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.5px;line-height:1.6}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--rule)}
+th{font-weight:600;color:var(--ink2);background:var(--surface2);font-size:13px;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+ul,ol{padding-left:1.3em;margin:0 0 16px}
+li{margin-bottom:7px}
+/* day page */
+.dayhead{padding-bottom:18px}
+.daynum{font:500 14px/1 var(--mono);letter-spacing:.14em;color:var(--ink2);margin-bottom:12px}
+.meta{margin:12px 0 0;color:var(--ink2);font-size:14px}
+.timebar{display:flex;gap:3px;margin:22px 0 8px;position:sticky;top:0;z-index:5;background:var(--bg);padding-block:8px}
+.timebar a{display:block;text-decoration:none;font-size:12px;line-height:1.2;color:var(--ink);padding-top:7px;border-top:4px solid var(--c);white-space:nowrap;overflow:hidden;text-overflow:clip}
+.timebar a span{display:block;color:var(--ink2);font-family:var(--mono);font-size:11px}
+.layer{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 28px;padding-block:28px;border-top:1px solid var(--rule);scroll-margin-top:60px}
+.lh{--c:var(--fact)}
+.lh .ln{display:block;font:700 20px/1.3 var(--serif);color:var(--c)}
+.lh .lt{display:block;font:500 12px/1.4 var(--mono);color:var(--ink2);margin-top:2px}
+.lh .lq{display:block;font-size:13px;line-height:1.5;color:var(--ink2);margin-top:8px}
+.prim .lh{--c:var(--prim)}.timebar .prim{--c:var(--prim)}
+.fact .lh{--c:var(--fact)}.expl .lh{--c:var(--expl)}.narr .lh{--c:var(--narr)}.cons .lh{--c:var(--cons)}.today .lh{--c:var(--today)}
+.timebar .fact{--c:var(--fact)}.timebar .expl{--c:var(--expl)}.timebar .narr{--c:var(--narr)}.timebar .cons{--c:var(--cons)}.timebar .today{--c:var(--today)}
+.lb{min-width:0;max-width:41em}
+.lb .src{font-size:14px;color:var(--ink2);padding:8px 12px;background:var(--surface2);border-radius:6px;margin-bottom:16px}
+.think{margin-top:6px;padding:14px 16px;background:var(--surface);border:1px solid var(--rule);border-radius:8px}
+.pn{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:36px;padding-top:20px;border-top:1px solid var(--rule)}
+.pn a{font-size:15px}
+.pn .off{color:var(--ink2)}
+button.mark{font:inherit;font-size:14px;padding:7px 14px;border-radius:8px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);cursor:pointer}
+button.mark[aria-pressed="true"]{border-color:var(--ok);color:var(--ok)}
+:focus-visible{outline:2px solid var(--fact);outline-offset:2px}
+.foot{margin-top:48px;font-size:13px;color:var(--ink2);border-top:1px solid var(--rule);padding-top:16px}
+/* index */
+.hero{padding-block:20px 8px}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:26px 0 8px}
+.three div{padding:14px 16px;background:var(--surface);border:1px solid var(--rule);border-radius:8px;border-top:4px solid var(--c)}
+.three b{display:block;font:700 17px/1.3 var(--serif);color:var(--c);margin-bottom:4px}
+.three span{font-size:14px;color:var(--ink2);line-height:1.6;display:block}
+.btn{display:inline-block;margin-top:18px;padding:10px 18px;background:var(--fact);color:var(--bg);border-radius:8px;text-decoration:none;font-weight:500}
+.btn:hover{color:var(--bg);opacity:.9}
+.stage{border-top:1px solid var(--rule);padding-block:6px}
+.stage>summary{cursor:pointer;list-style:none;padding:14px 0;display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.stage>summary::-webkit-details-marker{display:none}
+.stage .sn{font:500 13px/1 var(--mono);color:var(--ink2);min-width:3.4em}
+.stage .st{font:700 18px/1.4 var(--serif)}
+.stage .sd{font-size:13px;color:var(--ink2);margin-left:auto}
+.sq{font-size:14.5px;color:var(--ink2);margin:0 0 10px}
+.days{list-style:none;padding:0;margin:0 0 14px}
+.days li{display:grid;grid-template-columns:3.4em minmax(0,1fr);gap:4px 14px;padding:10px 0;margin:0;border-top:1px dashed var(--rule)}
+.days .dn{font:500 14px/1.7 var(--mono);color:var(--ink2)}
+.days .dt{font-size:15px;line-height:1.7}
+.days .dt a{font-weight:600}
+.days .dm{display:block;font-size:13.5px;color:var(--ink2);margin-top:3px}
+.days .pend{font-size:12px;color:var(--ink2);border:1px solid var(--rule);border-radius:4px;padding:0 6px;margin-left:6px;white-space:nowrap}
+.days .done{color:var(--ok);margin-left:6px;font-size:13px}
+/* figures */
+.fig{margin:6px 0 20px;padding:14px;background:var(--surface);border:1px solid var(--rule);border-radius:8px}
+.fig .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.fig button.tb{font:inherit;font-size:14px;padding:6px 12px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);border-radius:8px;cursor:pointer}
+.fig button.tb[aria-pressed="true"]{background:var(--fact);border-color:var(--fact);color:var(--bg)}
+.fig .cap{font-size:14px;color:var(--ink2);margin:8px 0 0;line-height:1.7}
+.fig svg{display:block;width:100%;height:auto}
+.fig svg text{font-family:var(--sans);fill:var(--ink)}
+.fig svg .th{font-size:14px;font-weight:600}
+.fig svg .ts{font-size:12px;fill:var(--ink2)}
+.rg rect{fill:color-mix(in srgb,var(--c) 20%,var(--surface));stroke:var(--c);stroke-width:1;transition:fill .25s,stroke .25s}
+.nd rect{fill:var(--surface2);stroke:var(--ink2);stroke-width:1}
+.ar{stroke:var(--fact);stroke-width:2;fill:none}
+.ar.cut{stroke:var(--split);stroke-dasharray:5 5;opacity:.55}
+@media (max-width:700px){
+  .layer{grid-template-columns:minmax(0,1fr);gap:12px}
+  .lh{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .lh .lq{flex-basis:100%;margin-top:0}
+  .three{grid-template-columns:minmax(0,1fr)}
+  .timebar a{font-size:11px}
+  .timebar a span{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.fig .sv{overflow-x:auto}
+.fig .sv svg{min-width:560px}
+
+.tlf{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.tlf button{font:inherit;font-size:14px;padding:6px 12px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);border-radius:8px;cursor:pointer}
+.tlf button[aria-pressed="true"]{background:var(--fact);border-color:var(--fact);color:var(--bg)}
+
+.note{margin:18px 0 6px;padding:14px 16px;background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--expl);border-radius:8px;font-size:14.5px}.note ul{margin:8px 0 0}.note li{margin-bottom:5px}
+
+.sum .lh{--c:var(--s-green)}.timebar .sum{--c:var(--s-green)}
+.sum .lb{background:color-mix(in srgb,var(--s-green) 8%,var(--surface));border-radius:8px;padding:12px 16px}
+</style></head><body><div class="wrap"><div class="top"><a class="brand" href="index.html">世界格局百年课</a><a class="nl" href="index.html" aria-current="page">课程</a><a class="nl" href="method.html">读法</a><a class="nl" href="oil.html">石油与家族</a><a class="nl" href="grievances.html">宿怨地图</a><a class="nl" href="reading.html">阅读</a><a class="nl" href="timeline.html">时间线</a><a class="nl" href="verification.html">核查记录</a></div><header class="dayhead"><div class="daynum">DAY 48 / 60 · 阶段 6</div><h1>1991：苏联解体与布达佩斯备忘录</h1><p class="meta">1991–1994 · 约 10 分钟 · 缓和、危机与冷战终结</p></header><nav class="timebar" aria-label="本日结构"><a class="fact" style="flex:2 1 0" href="#fact">事实层<span>2′</span></a><a class="prim" style="flex:1 1 0" href="#prim">一手材料<span>1′</span></a><a class="expl" style="flex:3 1 0" href="#expl">解释层<span>3′</span></a><a class="narr" style="flex:1 1 0" href="#narr">叙述层<span>1′</span></a><a class="cons" style="flex:2 1 0" href="#cons">后果<span>2′</span></a><a class="today" style="flex:1 1 0" href="#today">今天<span>1′</span></a><a class="sum" style="flex:1 1 0" href="#sum">白话总结<span>1′</span></a></nav><section class="layer fact" id="fact"><div class="lh"><span class="ln">事实层</span><span class="lt">2 分钟</span><span class="lq">谁、何时、做了什么。可以回到文件核对。</span></div><div class="lb"><p class="src">依据：苏联解体、布达佩斯备忘录的二手整理。</p><ul><li>1991年8月，强硬派发动政变反对戈尔巴乔夫，失败。页面没有给具体日期，常见说法是8月19日至21日。<span class="tag t-pend">待核</span></li><li>1991年12月8日，俄罗斯、白俄罗斯、乌克兰三个共和国的领导人签署《别洛韦日协议》，宣布苏联不再存在，并成立独联体。12月21日《阿拉木图议定书》：多数共和国加入，格鲁吉亚和波罗的海三国没有加入。12月25日，戈尔巴乔夫辞职，把包括核发射密码在内的权力交给叶利钦，当晚克里姆林宫降下苏联国旗。12月26日，苏联最高苏维埃共和国院宣布苏联解散。俄罗斯被承认为继承国。<span class="tag t-ok">确证</span>（二手整理。）</li><li>1992年5月23日，俄、美、白俄罗斯、哈萨克斯坦、乌克兰在里斯本签署议定书，白、哈、乌将尽快作为无核国加入《不扩散核武器条约》。<span class="tag t-ok">确证</span>（二手整理。）</li><li>1994年12月5日，乌克兰、俄罗斯、美国、英国在布达佩斯签署《关于安全保证的备忘录》（法国、中国另有文件）。内容包括：尊重乌克兰的独立、主权和现有边界；不以武力相威胁或使用武力；不搞经济胁迫；如乌克兰遭到核侵略，寻求安理会行动；发生疑问时相互协商。<span class="tag t-ok">确证</span>（二手整理。）</li><li>乌克兰当时拥有世界第三大核武库；转出的弹头总数，页面没有给出。</li><li>这份备忘录是“保证”（assurance），不是“担保”（guarantee），不要求提供军事援助。美国官员称它“不具法律约束力”；也有乌克兰法学者认为它符合国际条约的标准。<span class="tag t-split">学界有分歧</span></li></ul></div></section>
+<section class="layer expl" id="expl"><div class="lh"><span class="ln">解释层</span><span class="lt">3 分钟</span><span class="lq">为什么这样做。证据和推断分开，分歧并列。</span></div><div class="lb"><p>这里要回答：苏联为什么倒了？“屈辱”这个词能说明什么？</p><p>先说原因。二手页面并列了几类：长期的经济停滞、军备和对外冲突的成本、民族主义和分离主义、公开性和改革带来的后果。它没有给这几项排名。到底哪一项是决定性的，不同的人有不同的看法。<span class="tag t-split">学界有分歧</span></p><p>再说过程。比起“为什么”，“怎么倒的”反而更具体：政变失败以后，三个共和国的领导人在别洛韦日用一份文件，宣布苏联不再存在。戈尔巴乔夫在12月25日辞职。这些是事实；他本人当时怎么想，页面没有写。</p><p>再说“屈辱”。课程大纲原来写的是“俄罗斯屈辱叙事的形成与不同阶层感受”。可是本课程没有读到民意调查，也没有读到相关研究，所以不能说“不同阶层是怎么感受的”。这个题目要等读了专著再回头补。<span class="tag t-pend">待核</span></p><p>最后说布达佩斯备忘录。乌克兰交出核武器，换到的是“保证”，不是“担保”。这个区别很重要，因为它决定了别人违反时，谁该做什么。字面上，备忘录只要求相互协商和寻求安理会行动，没有要求出兵。</p></div></section>
+<section class="layer prim" id="prim"><div class="lh"><span class="ln">一手材料</span><span class="lt">1 分钟</span><span class="lq">原文怎么写。只引已核对的原文；读法写在引文之后。</span></div><div class="lb"><p>本日没有取得布达佩斯备忘录的原文（联合国条约集的卷册太大，没有读到那一条）。“不具法律约束力”这句话，是二手页面转述的美国官员的说法。读法：看这类文件，先看动词：“尊重”“不使用”“协商”，每一个动词要求的行为都不一样；再看标题里是“保证”（assurances）还是“担保”（guarantees）。</p></div></section>
+<section class="layer narr" id="narr"><div class="lh"><span class="ln">叙述层</span><span class="lt">1 分钟</span><span class="lq">各方今天怎么讲这件事，用来做什么。</span></div><div class="lb"><p>关于1991年，有几种讲法：有人说它是“一个大国被拆散”，有人说它是“各民族走向独立”，有人说它是“一个体制的失败”。各自强调的原因不同。具体是谁在什么场合这样讲，本课程没有找到文献，所以只当作概括。<span class="tag t-nar">叙述</span><span class="tag t-pend">待核</span></p></div></section>
+<section class="layer cons" id="cons"><div class="lh"><span class="ln">后果</span><span class="lt">2 分钟</span><span class="lq">谁得到了什么，谁失去了什么。</span></div><div class="lb"><p>一个国家变成了十五个国家。俄罗斯作为继承国，接管了苏联的核武器。白俄罗斯、哈萨克斯坦、乌克兰同意放弃自己领土上的核武器。后面的课程（Day 55）会回到布达佩斯备忘录，到时再看各方怎样引用它。</p></div></section>
+<section class="layer today" id="today"><div class="lh"><span class="ln">今天与自测</span><span class="lt">1 分钟</span><span class="lq">和今天的连接，以及一道思考题。</span></div><div class="lb"><p>今天，“一份没有强制执行机制的保证，到底值多少”，仍是有关安全的重大问题。</p><p class="think">思考题：如果你是当年的乌克兰谈判代表，你会要求在文件里多写哪些内容，才能让它更可靠？</p></div></section>
+<section class="layer sum" id="sum"><div class="lh"><span class="ln">白话总结</span><span class="lt">1 分钟</span><span class="lq">用大白话把今天这件事说一遍。</span></div><div class="lb"><p>1991年8月政变失败后，苏联很快散了架：12月8日，俄、乌、白三个共和国的领导人签了一份文件，宣布苏联不存在了，12月25日戈尔巴乔夫辞职，国旗降下。为什么倒，学者们列了一串原因，没有排出先后。1994年，乌克兰把苏联留在它境内的核武器交出去，换来一份“尊重你边界”的保证书，但这份保证书不要求任何人出兵。这是后来很多争论的起点，后面的课程会回头讲。</p></div></section>
+<p><button class="mark" id="mk" type="button" aria-pressed="false">标记为已读</button></p><script>(function(){var K="wo-read",N=48,b=document.getElementById("mk");function g(){try{return JSON.parse(localStorage.getItem(K)||"[]")}catch(e){return[]}}function s(a){try{localStorage.setItem(K,JSON.stringify(a))}catch(e){}}function r(){var on=g().indexOf(N)>-1;b.setAttribute("aria-pressed",on);b.textContent=on?"已读":"标记为已读"}b.onclick=function(){var a=g(),i=a.indexOf(N);if(i>-1)a.splice(i,1);else a.push(N);s(a);r()};r()})()</script><div class="pn"><a href="day47.html">← Day 47</a><span class="off">Day 49 待撰写 · <a href="index.html">课程目录</a></span></div><p class="foot">本课程由 AI（Claude）协助起草，经联网抽查（主要是二手资料），没有逐条核对档案原件。涉及具体数字、日期和引语的地方，请对照 <a href="reading.html">推荐阅读</a> 复核；已核查与未核实的条目见 <a href="verification.html">核查记录</a>。各段落的证据标记含义见 <a href="method.html">读法</a>。</p></div></body></html>

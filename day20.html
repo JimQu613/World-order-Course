@@ -1,0 +1,137 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Day 20 决定性战役与“第二战场”之争</title><style>/* layout concept: a map-room atlas. Quiet slate ground; five layer colours carry meaning (fact, explanation, narrative, consequence, today). */
+:root{
+  --bg:#f1f3f6;--surface:#ffffff;--surface2:#e8ecf1;--ink:#1a2330;--ink2:#515d6d;--rule:#d3d9e1;
+  --fact:#1d5fa8;--expl:#a85f0c;--narr:#7a3b8f;--cons:#16766f;--today:#4a5668;--prim:#8a5a2b;
+  --ok:#2c7a4b;--self:#2f6f9a;--infer:#a85f0c;--split:#b3392f;--nar:#7a3b8f;--none:#6b7280;--pend:#b3392f;
+  --s-blue:#2f6fb5;--s-teal:#13857c;--s-purple:#7a54b8;--s-coral:#c8553a;--s-amber:#b27a12;--s-pink:#b8447a;--s-green:#4b8a2c;--s-gray:#6b7280;
+  --serif:"Noto Serif SC","Songti SC","Source Han Serif SC",serif;
+  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10151c;--surface:#171e28;--surface2:#1f2835;--ink:#e5e9ef;--ink2:#9ba7b8;--rule:#2b3646;
+  --fact:#6eaaf0;--expl:#e3a458;--narr:#c58ddb;--cons:#5cc5bb;--today:#a3afc0;--prim:#d1a574;
+  --ok:#6cc58d;--self:#74b3dd;--infer:#e3a458;--split:#ef8579;--nar:#c58ddb;--none:#9aa3b0;--pend:#ef8579;
+  --s-blue:#6aa6ec;--s-teal:#4cc3b8;--s-purple:#b093e8;--s-coral:#ee8a70;--s-amber:#e0b24d;--s-pink:#ea7fb0;--s-green:#8ac86a;--s-gray:#9aa3b0;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10151c;--surface:#171e28;--surface2:#1f2835;--ink:#e5e9ef;--ink2:#9ba7b8;--rule:#2b3646;
+  --fact:#6eaaf0;--expl:#e3a458;--narr:#c58ddb;--cons:#5cc5bb;--today:#a3afc0;--prim:#d1a574;
+  --ok:#6cc58d;--self:#74b3dd;--infer:#e3a458;--split:#ef8579;--nar:#c58ddb;--none:#9aa3b0;--pend:#ef8579;
+  --s-blue:#6aa6ec;--s-teal:#4cc3b8;--s-purple:#b093e8;--s-coral:#ee8a70;--s-amber:#e0b24d;--s-pink:#ea7fb0;--s-green:#8ac86a;--s-gray:#9aa3b0;
+  color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 var(--sans);padding-inline:16px;padding-block:0 56px}
+a{color:var(--fact);text-underline-offset:3px}
+a:hover{color:var(--ink)}
+.wrap{max-width:860px;margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;padding-block:14px;border-bottom:1px solid var(--rule);margin-bottom:28px}
+.brand{font:700 17px/1.2 var(--serif);color:var(--ink);text-decoration:none;margin-right:auto}
+.top a.nl{font-size:14px;color:var(--ink2);text-decoration:none}
+.top a.nl:hover,.top a.nl[aria-current]{color:var(--ink);text-decoration:underline}
+h1,h2,h3{font-family:var(--serif);line-height:1.35;text-wrap:balance;margin:0}
+h1{font-size:clamp(26px,5vw,38px);font-weight:700}
+h2{font-size:clamp(21px,3.4vw,26px);font-weight:700;margin-top:48px;margin-bottom:14px}
+h3{font-size:18px;font-weight:700;margin-top:30px;margin-bottom:10px}
+p{margin:0 0 14px}
+.lede{font-size:18px;color:var(--ink2);max-width:36em}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+.tag{display:inline-block;font:500 12px/1.5 var(--sans);padding:0 7px;border-radius:4px;margin:0 2px;vertical-align:1px;white-space:nowrap;color:var(--c);background:color-mix(in srgb,var(--c) 13%,transparent);border:1px solid color-mix(in srgb,var(--c) 38%,transparent)}
+.t-ok{--c:var(--ok)}.t-self{--c:var(--self)}.t-infer{--c:var(--infer)}.t-split{--c:var(--split)}.t-nar{--c:var(--nar)}.t-none{--c:var(--none)}.t-pend{--c:var(--pend)}
+.tw{overflow-x:auto;margin:0 0 20px;border:1px solid var(--rule);border-radius:8px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.5px;line-height:1.6}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--rule)}
+th{font-weight:600;color:var(--ink2);background:var(--surface2);font-size:13px;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+ul,ol{padding-left:1.3em;margin:0 0 16px}
+li{margin-bottom:7px}
+/* day page */
+.dayhead{padding-bottom:18px}
+.daynum{font:500 14px/1 var(--mono);letter-spacing:.14em;color:var(--ink2);margin-bottom:12px}
+.meta{margin:12px 0 0;color:var(--ink2);font-size:14px}
+.timebar{display:flex;gap:3px;margin:22px 0 8px;position:sticky;top:0;z-index:5;background:var(--bg);padding-block:8px}
+.timebar a{display:block;text-decoration:none;font-size:12px;line-height:1.2;color:var(--ink);padding-top:7px;border-top:4px solid var(--c);white-space:nowrap;overflow:hidden;text-overflow:clip}
+.timebar a span{display:block;color:var(--ink2);font-family:var(--mono);font-size:11px}
+.layer{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 28px;padding-block:28px;border-top:1px solid var(--rule);scroll-margin-top:60px}
+.lh{--c:var(--fact)}
+.lh .ln{display:block;font:700 20px/1.3 var(--serif);color:var(--c)}
+.lh .lt{display:block;font:500 12px/1.4 var(--mono);color:var(--ink2);margin-top:2px}
+.lh .lq{display:block;font-size:13px;line-height:1.5;color:var(--ink2);margin-top:8px}
+.prim .lh{--c:var(--prim)}.timebar .prim{--c:var(--prim)}
+.fact .lh{--c:var(--fact)}.expl .lh{--c:var(--expl)}.narr .lh{--c:var(--narr)}.cons .lh{--c:var(--cons)}.today .lh{--c:var(--today)}
+.timebar .fact{--c:var(--fact)}.timebar .expl{--c:var(--expl)}.timebar .narr{--c:var(--narr)}.timebar .cons{--c:var(--cons)}.timebar .today{--c:var(--today)}
+.lb{min-width:0;max-width:41em}
+.lb .src{font-size:14px;color:var(--ink2);padding:8px 12px;background:var(--surface2);border-radius:6px;margin-bottom:16px}
+.think{margin-top:6px;padding:14px 16px;background:var(--surface);border:1px solid var(--rule);border-radius:8px}
+.pn{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:36px;padding-top:20px;border-top:1px solid var(--rule)}
+.pn a{font-size:15px}
+.pn .off{color:var(--ink2)}
+button.mark{font:inherit;font-size:14px;padding:7px 14px;border-radius:8px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);cursor:pointer}
+button.mark[aria-pressed="true"]{border-color:var(--ok);color:var(--ok)}
+:focus-visible{outline:2px solid var(--fact);outline-offset:2px}
+.foot{margin-top:48px;font-size:13px;color:var(--ink2);border-top:1px solid var(--rule);padding-top:16px}
+/* index */
+.hero{padding-block:20px 8px}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:26px 0 8px}
+.three div{padding:14px 16px;background:var(--surface);border:1px solid var(--rule);border-radius:8px;border-top:4px solid var(--c)}
+.three b{display:block;font:700 17px/1.3 var(--serif);color:var(--c);margin-bottom:4px}
+.three span{font-size:14px;color:var(--ink2);line-height:1.6;display:block}
+.btn{display:inline-block;margin-top:18px;padding:10px 18px;background:var(--fact);color:var(--bg);border-radius:8px;text-decoration:none;font-weight:500}
+.btn:hover{color:var(--bg);opacity:.9}
+.stage{border-top:1px solid var(--rule);padding-block:6px}
+.stage>summary{cursor:pointer;list-style:none;padding:14px 0;display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.stage>summary::-webkit-details-marker{display:none}
+.stage .sn{font:500 13px/1 var(--mono);color:var(--ink2);min-width:3.4em}
+.stage .st{font:700 18px/1.4 var(--serif)}
+.stage .sd{font-size:13px;color:var(--ink2);margin-left:auto}
+.sq{font-size:14.5px;color:var(--ink2);margin:0 0 10px}
+.days{list-style:none;padding:0;margin:0 0 14px}
+.days li{display:grid;grid-template-columns:3.4em minmax(0,1fr);gap:4px 14px;padding:10px 0;margin:0;border-top:1px dashed var(--rule)}
+.days .dn{font:500 14px/1.7 var(--mono);color:var(--ink2)}
+.days .dt{font-size:15px;line-height:1.7}
+.days .dt a{font-weight:600}
+.days .dm{display:block;font-size:13.5px;color:var(--ink2);margin-top:3px}
+.days .pend{font-size:12px;color:var(--ink2);border:1px solid var(--rule);border-radius:4px;padding:0 6px;margin-left:6px;white-space:nowrap}
+.days .done{color:var(--ok);margin-left:6px;font-size:13px}
+/* figures */
+.fig{margin:6px 0 20px;padding:14px;background:var(--surface);border:1px solid var(--rule);border-radius:8px}
+.fig .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.fig button.tb{font:inherit;font-size:14px;padding:6px 12px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);border-radius:8px;cursor:pointer}
+.fig button.tb[aria-pressed="true"]{background:var(--fact);border-color:var(--fact);color:var(--bg)}
+.fig .cap{font-size:14px;color:var(--ink2);margin:8px 0 0;line-height:1.7}
+.fig svg{display:block;width:100%;height:auto}
+.fig svg text{font-family:var(--sans);fill:var(--ink)}
+.fig svg .th{font-size:14px;font-weight:600}
+.fig svg .ts{font-size:12px;fill:var(--ink2)}
+.rg rect{fill:color-mix(in srgb,var(--c) 20%,var(--surface));stroke:var(--c);stroke-width:1;transition:fill .25s,stroke .25s}
+.nd rect{fill:var(--surface2);stroke:var(--ink2);stroke-width:1}
+.ar{stroke:var(--fact);stroke-width:2;fill:none}
+.ar.cut{stroke:var(--split);stroke-dasharray:5 5;opacity:.55}
+@media (max-width:700px){
+  .layer{grid-template-columns:minmax(0,1fr);gap:12px}
+  .lh{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .lh .lq{flex-basis:100%;margin-top:0}
+  .three{grid-template-columns:minmax(0,1fr)}
+  .timebar a{font-size:11px}
+  .timebar a span{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.fig .sv{overflow-x:auto}
+.fig .sv svg{min-width:560px}
+
+.tlf{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.tlf button{font:inherit;font-size:14px;padding:6px 12px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);border-radius:8px;cursor:pointer}
+.tlf button[aria-pressed="true"]{background:var(--fact);border-color:var(--fact);color:var(--bg)}
+
+.note{margin:18px 0 6px;padding:14px 16px;background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--expl);border-radius:8px;font-size:14.5px}.note ul{margin:8px 0 0}.note li{margin-bottom:5px}
+
+.sum .lh{--c:var(--s-green)}.timebar .sum{--c:var(--s-green)}
+.sum .lb{background:color-mix(in srgb,var(--s-green) 8%,var(--surface));border-radius:8px;padding:12px 16px}
+</style></head><body><div class="wrap"><div class="top"><a class="brand" href="index.html">世界格局百年课</a><a class="nl" href="index.html" aria-current="page">课程</a><a class="nl" href="method.html">读法</a><a class="nl" href="oil.html">石油与家族</a><a class="nl" href="grievances.html">宿怨地图</a><a class="nl" href="reading.html">阅读</a><a class="nl" href="timeline.html">时间线</a><a class="nl" href="verification.html">核查记录</a></div><header class="dayhead"><div class="daynum">DAY 20 / 60 · 阶段 3</div><h1>决定性战役与“第二战场”之争</h1><p class="meta">1942–1944 · 约 10 分钟 · 二战与战后设计</p></header><nav class="timebar" aria-label="本日结构"><a class="fact" style="flex:2 1 0" href="#fact">事实层<span>2′</span></a><a class="prim" style="flex:1 1 0" href="#prim">一手材料<span>1′</span></a><a class="expl" style="flex:3 1 0" href="#expl">解释层<span>3′</span></a><a class="narr" style="flex:1 1 0" href="#narr">叙述层<span>1′</span></a><a class="cons" style="flex:2 1 0" href="#cons">后果<span>2′</span></a><a class="today" style="flex:1 1 0" href="#today">今天<span>1′</span></a></nav><section class="layer fact" id="fact"><div class="lh"><span class="ln">事实层</span><span class="lt">2 分钟</span><span class="lq">谁、何时、做了什么。可以回到文件核对。</span></div><div class="lb"><p class="src">依据：德黑兰会议《军事结论》与《关于伊朗的宣言》（耶鲁大学阿瓦隆档案）、斯大林格勒战役、德黑兰会议与诺曼底登陆的二手整理。</p><ul><li>斯大林格勒战役：1942年7月17日初次交战，8月23日德军开始攻城，11月19日苏军发动“天王星行动”，11月23日两路苏军在卡拉奇会合，合围约33万轴心国人员。1943年1月31日至2月2日，德军第六集团军投降，约9.1万人被俘。<span class="tag t-ok">确证</span>（二手整理。）</li><li>伤亡的估计差别很大：各方合计在80万到150万之间。苏联方面的两种学术估计：克里沃舍耶夫约113万，佩列斯列金约135万。<span class="tag t-split">学界有分歧</span></li><li>1943年5月，在华盛顿召开的“三叉戟”会议上，英美作出了跨海峡进攻的决定。<span class="tag t-ok">确证</span>（二手整理。）</li><li>1943年11月28日至12月1日，德黑兰会议，这是斯大林、罗斯福、丘吉尔的第一次三人会议。《军事结论》写道：“霸王行动”将在1944年5月发动，并配合对法国南部的行动；会议注意到斯大林的声明，苏军“大约在同一时间发动攻势”。<span class="tag t-ok">确证</span></li><li>斯大林同意在德国战败后对日作战。会议同意把波兰的东部边界大致移到寇松线，波兰在西边从德国得到补偿，到奥得—尼斯河。这一点到1945年才被正式批准。<span class="tag t-ok">确证</span>（二手整理。）</li><li>1944年6月6日，诺曼底登陆，首日约有16万人渡过海峡（海上约13.2万，空降约2.4万）。盟军首日伤亡至少1万人，其中4414人确认死亡。<span class="tag t-ok">确证</span>（二手整理。）</li><li>苏军的“巴格拉季昂”攻势在1944年6月下旬发动。具体日期，本课程没有核对到。<span class="tag t-pend">待核</span></li></ul></div></section>
+<section class="layer expl" id="expl"><div class="lh"><span class="ln">解释层</span><span class="lt">3 分钟</span><span class="lq">为什么这样做。证据和推断分开，分歧并列。</span></div><div class="lb"><p>这里要回答：英美在“第二战场”问题上有什么分歧？苏联为什么怀疑盟友？</p><p>分歧的主线是：丘吉尔主张在1943年集中力量在意大利和地中海作战，理由是船只不足，不可能在当年发动跨海峡进攻；罗斯福和斯大林则要求跨海峡的进攻。最后写进《军事结论》的日期是1944年5月。<span class="tag t-ok">确证</span></p><p>苏联的怀疑有一部分来自这个时间表：斯大林在1942年、1943年两年都在独自承受德军的主力，而盟军的进攻一再推迟。<span class="tag t-infer">学者推断</span>这是推断：二手页面没有直接引述斯大林当时的怀疑，本课程没有核对到原话。<span class="tag t-pend">待核</span></p><p>德黑兰会议上还有几件说法不一的事。第一，关于波兰，罗斯福要求不参加有关波兰的讨论，理由是1944年的美国选举；苏联与伦敦波兰流亡政府的关系已经破裂，而英美仍然承认它。<span class="tag t-pend">待核</span>（本课程没有核对这一句的日期和细节。）（二手整理。）第二，关于“暗杀阴谋”，苏联方面说有德国特工策划杀害三位领导人，美国人怀疑斯大林编造或夸大这件事，以便让罗斯福搬进苏联使馆；莫洛托夫后来承认并不知道具体的阴谋。<span class="tag t-split">学界有分歧</span>第三，关于斯大林提出处决5万到10万名德国军官的说法，二手页面说这是“试探或玩笑”，来源和意图都不确定。<span class="tag t-none">流传无据</span></p></div></section>
+<section class="layer prim" id="prim"><div class="lh"><span class="ln">一手材料</span><span class="lt">1 分钟</span><span class="lq">原文怎么写。只引已核对的原文；读法写在引文之后。</span></div><div class="lb"><p>来源：德黑兰会议《军事结论》，1943年12月1日（耶鲁大学阿瓦隆档案）。结论写道：“霸王行动”将于1944年5月发动，同时配合对法国南部的行动（Operation OVERLORD would be launched during May 1944, in conjunction with an operation against Southern France）；会议注意到斯大林的声明：苏军“大约在同一时间发动攻势”（the Soviet forces would launch an offensive at about the same time）。签字人：罗斯福、斯大林、丘吉尔。（本课程拟译。）读法：这是三方共同签署的军事结论，措辞是“将”，不是“可能”；对波兰边界等政治问题，这份文件没有写。同日的《关于伊朗的宣言》则写到三国“指望”伊朗与其他爱好和平的国家一同参加战后的合作。</p></div></section>
+<section class="layer narr" id="narr"><div class="lh"><span class="ln">叙述层</span><span class="lt">1 分钟</span><span class="lq">各方今天怎么讲这件事，用来做什么。</span></div><div class="lb"><p>俄罗斯和苏联的叙述强调斯大林格勒是“战争的转折点”，是苏联独自打败德国主力的证明；西方的叙述更强调诺曼底和太平洋战场。二手页面说，史家一般把斯大林格勒看作欧洲战场的转折点。把“谁打赢了战争”变成争夺功劳的问题，是后来冷战中不同叙述的来源。<span class="tag t-nar">叙述</span></p></div></section>
+<section class="layer cons" id="cons"><div class="lh"><span class="ln">后果</span><span class="lt">2 分钟</span><span class="lq">谁得到了什么，谁失去了什么。</span></div><div class="lb"><p>会议上讨论的波兰边界和对日参战，到1945年都变成了需要处理的问题（Day 21）。<span class="tag t-infer">学者推断</span>1944年6月以后，西线和东线的两条战线同时推进，德国的战败时间表由此确定。</p></div></section>
+<section class="layer today" id="today"><div class="lh"><span class="ln">今天与自测</span><span class="lt">1 分钟</span><span class="lq">和今天的连接，以及一道思考题。</span></div><div class="lb"><p>今天，盟友之间对“谁出多少力”的争论仍然存在。</p><p class="think">思考题：丘吉尔主张的地中海路线与罗斯福、斯大林主张的跨海峡路线，各自的代价和风险是什么？你手上的证据足够判断哪一种更合理吗？</p></div></section>
+<p><button class="mark" id="mk" type="button" aria-pressed="false">标记为已读</button></p><script>(function(){var K="wo-read",N=20,b=document.getElementById("mk");function g(){try{return JSON.parse(localStorage.getItem(K)||"[]")}catch(e){return[]}}function s(a){try{localStorage.setItem(K,JSON.stringify(a))}catch(e){}}function r(){var on=g().indexOf(N)>-1;b.setAttribute("aria-pressed",on);b.textContent=on?"已读":"标记为已读"}b.onclick=function(){var a=g(),i=a.indexOf(N);if(i>-1)a.splice(i,1);else a.push(N);s(a);r()};r()})()</script><div class="pn"><a href="day19.html">← Day 19</a><a href="day21.html">Day 21 →</a></div><p class="foot">本课程由 AI（Claude）协助起草，经联网抽查（主要是二手资料），没有逐条核对档案原件。涉及具体数字、日期和引语的地方，请对照 <a href="reading.html">推荐阅读</a> 复核；已核查与未核实的条目见 <a href="verification.html">核查记录</a>。各段落的证据标记含义见 <a href="method.html">读法</a>。</p></div></body></html>

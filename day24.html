@@ -1,0 +1,137 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Day 24 原子弹与日本投降：怎么读这段历史</title><style>/* layout concept: a map-room atlas. Quiet slate ground; five layer colours carry meaning (fact, explanation, narrative, consequence, today). */
+:root{
+  --bg:#f1f3f6;--surface:#ffffff;--surface2:#e8ecf1;--ink:#1a2330;--ink2:#515d6d;--rule:#d3d9e1;
+  --fact:#1d5fa8;--expl:#a85f0c;--narr:#7a3b8f;--cons:#16766f;--today:#4a5668;--prim:#8a5a2b;
+  --ok:#2c7a4b;--self:#2f6f9a;--infer:#a85f0c;--split:#b3392f;--nar:#7a3b8f;--none:#6b7280;--pend:#b3392f;
+  --s-blue:#2f6fb5;--s-teal:#13857c;--s-purple:#7a54b8;--s-coral:#c8553a;--s-amber:#b27a12;--s-pink:#b8447a;--s-green:#4b8a2c;--s-gray:#6b7280;
+  --serif:"Noto Serif SC","Songti SC","Source Han Serif SC",serif;
+  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10151c;--surface:#171e28;--surface2:#1f2835;--ink:#e5e9ef;--ink2:#9ba7b8;--rule:#2b3646;
+  --fact:#6eaaf0;--expl:#e3a458;--narr:#c58ddb;--cons:#5cc5bb;--today:#a3afc0;--prim:#d1a574;
+  --ok:#6cc58d;--self:#74b3dd;--infer:#e3a458;--split:#ef8579;--nar:#c58ddb;--none:#9aa3b0;--pend:#ef8579;
+  --s-blue:#6aa6ec;--s-teal:#4cc3b8;--s-purple:#b093e8;--s-coral:#ee8a70;--s-amber:#e0b24d;--s-pink:#ea7fb0;--s-green:#8ac86a;--s-gray:#9aa3b0;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10151c;--surface:#171e28;--surface2:#1f2835;--ink:#e5e9ef;--ink2:#9ba7b8;--rule:#2b3646;
+  --fact:#6eaaf0;--expl:#e3a458;--narr:#c58ddb;--cons:#5cc5bb;--today:#a3afc0;--prim:#d1a574;
+  --ok:#6cc58d;--self:#74b3dd;--infer:#e3a458;--split:#ef8579;--nar:#c58ddb;--none:#9aa3b0;--pend:#ef8579;
+  --s-blue:#6aa6ec;--s-teal:#4cc3b8;--s-purple:#b093e8;--s-coral:#ee8a70;--s-amber:#e0b24d;--s-pink:#ea7fb0;--s-green:#8ac86a;--s-gray:#9aa3b0;
+  color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 var(--sans);padding-inline:16px;padding-block:0 56px}
+a{color:var(--fact);text-underline-offset:3px}
+a:hover{color:var(--ink)}
+.wrap{max-width:860px;margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;padding-block:14px;border-bottom:1px solid var(--rule);margin-bottom:28px}
+.brand{font:700 17px/1.2 var(--serif);color:var(--ink);text-decoration:none;margin-right:auto}
+.top a.nl{font-size:14px;color:var(--ink2);text-decoration:none}
+.top a.nl:hover,.top a.nl[aria-current]{color:var(--ink);text-decoration:underline}
+h1,h2,h3{font-family:var(--serif);line-height:1.35;text-wrap:balance;margin:0}
+h1{font-size:clamp(26px,5vw,38px);font-weight:700}
+h2{font-size:clamp(21px,3.4vw,26px);font-weight:700;margin-top:48px;margin-bottom:14px}
+h3{font-size:18px;font-weight:700;margin-top:30px;margin-bottom:10px}
+p{margin:0 0 14px}
+.lede{font-size:18px;color:var(--ink2);max-width:36em}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+.tag{display:inline-block;font:500 12px/1.5 var(--sans);padding:0 7px;border-radius:4px;margin:0 2px;vertical-align:1px;white-space:nowrap;color:var(--c);background:color-mix(in srgb,var(--c) 13%,transparent);border:1px solid color-mix(in srgb,var(--c) 38%,transparent)}
+.t-ok{--c:var(--ok)}.t-self{--c:var(--self)}.t-infer{--c:var(--infer)}.t-split{--c:var(--split)}.t-nar{--c:var(--nar)}.t-none{--c:var(--none)}.t-pend{--c:var(--pend)}
+.tw{overflow-x:auto;margin:0 0 20px;border:1px solid var(--rule);border-radius:8px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.5px;line-height:1.6}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--rule)}
+th{font-weight:600;color:var(--ink2);background:var(--surface2);font-size:13px;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+ul,ol{padding-left:1.3em;margin:0 0 16px}
+li{margin-bottom:7px}
+/* day page */
+.dayhead{padding-bottom:18px}
+.daynum{font:500 14px/1 var(--mono);letter-spacing:.14em;color:var(--ink2);margin-bottom:12px}
+.meta{margin:12px 0 0;color:var(--ink2);font-size:14px}
+.timebar{display:flex;gap:3px;margin:22px 0 8px;position:sticky;top:0;z-index:5;background:var(--bg);padding-block:8px}
+.timebar a{display:block;text-decoration:none;font-size:12px;line-height:1.2;color:var(--ink);padding-top:7px;border-top:4px solid var(--c);white-space:nowrap;overflow:hidden;text-overflow:clip}
+.timebar a span{display:block;color:var(--ink2);font-family:var(--mono);font-size:11px}
+.layer{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 28px;padding-block:28px;border-top:1px solid var(--rule);scroll-margin-top:60px}
+.lh{--c:var(--fact)}
+.lh .ln{display:block;font:700 20px/1.3 var(--serif);color:var(--c)}
+.lh .lt{display:block;font:500 12px/1.4 var(--mono);color:var(--ink2);margin-top:2px}
+.lh .lq{display:block;font-size:13px;line-height:1.5;color:var(--ink2);margin-top:8px}
+.prim .lh{--c:var(--prim)}.timebar .prim{--c:var(--prim)}
+.fact .lh{--c:var(--fact)}.expl .lh{--c:var(--expl)}.narr .lh{--c:var(--narr)}.cons .lh{--c:var(--cons)}.today .lh{--c:var(--today)}
+.timebar .fact{--c:var(--fact)}.timebar .expl{--c:var(--expl)}.timebar .narr{--c:var(--narr)}.timebar .cons{--c:var(--cons)}.timebar .today{--c:var(--today)}
+.lb{min-width:0;max-width:41em}
+.lb .src{font-size:14px;color:var(--ink2);padding:8px 12px;background:var(--surface2);border-radius:6px;margin-bottom:16px}
+.think{margin-top:6px;padding:14px 16px;background:var(--surface);border:1px solid var(--rule);border-radius:8px}
+.pn{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:36px;padding-top:20px;border-top:1px solid var(--rule)}
+.pn a{font-size:15px}
+.pn .off{color:var(--ink2)}
+button.mark{font:inherit;font-size:14px;padding:7px 14px;border-radius:8px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);cursor:pointer}
+button.mark[aria-pressed="true"]{border-color:var(--ok);color:var(--ok)}
+:focus-visible{outline:2px solid var(--fact);outline-offset:2px}
+.foot{margin-top:48px;font-size:13px;color:var(--ink2);border-top:1px solid var(--rule);padding-top:16px}
+/* index */
+.hero{padding-block:20px 8px}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:26px 0 8px}
+.three div{padding:14px 16px;background:var(--surface);border:1px solid var(--rule);border-radius:8px;border-top:4px solid var(--c)}
+.three b{display:block;font:700 17px/1.3 var(--serif);color:var(--c);margin-bottom:4px}
+.three span{font-size:14px;color:var(--ink2);line-height:1.6;display:block}
+.btn{display:inline-block;margin-top:18px;padding:10px 18px;background:var(--fact);color:var(--bg);border-radius:8px;text-decoration:none;font-weight:500}
+.btn:hover{color:var(--bg);opacity:.9}
+.stage{border-top:1px solid var(--rule);padding-block:6px}
+.stage>summary{cursor:pointer;list-style:none;padding:14px 0;display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.stage>summary::-webkit-details-marker{display:none}
+.stage .sn{font:500 13px/1 var(--mono);color:var(--ink2);min-width:3.4em}
+.stage .st{font:700 18px/1.4 var(--serif)}
+.stage .sd{font-size:13px;color:var(--ink2);margin-left:auto}
+.sq{font-size:14.5px;color:var(--ink2);margin:0 0 10px}
+.days{list-style:none;padding:0;margin:0 0 14px}
+.days li{display:grid;grid-template-columns:3.4em minmax(0,1fr);gap:4px 14px;padding:10px 0;margin:0;border-top:1px dashed var(--rule)}
+.days .dn{font:500 14px/1.7 var(--mono);color:var(--ink2)}
+.days .dt{font-size:15px;line-height:1.7}
+.days .dt a{font-weight:600}
+.days .dm{display:block;font-size:13.5px;color:var(--ink2);margin-top:3px}
+.days .pend{font-size:12px;color:var(--ink2);border:1px solid var(--rule);border-radius:4px;padding:0 6px;margin-left:6px;white-space:nowrap}
+.days .done{color:var(--ok);margin-left:6px;font-size:13px}
+/* figures */
+.fig{margin:6px 0 20px;padding:14px;background:var(--surface);border:1px solid var(--rule);border-radius:8px}
+.fig .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.fig button.tb{font:inherit;font-size:14px;padding:6px 12px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);border-radius:8px;cursor:pointer}
+.fig button.tb[aria-pressed="true"]{background:var(--fact);border-color:var(--fact);color:var(--bg)}
+.fig .cap{font-size:14px;color:var(--ink2);margin:8px 0 0;line-height:1.7}
+.fig svg{display:block;width:100%;height:auto}
+.fig svg text{font-family:var(--sans);fill:var(--ink)}
+.fig svg .th{font-size:14px;font-weight:600}
+.fig svg .ts{font-size:12px;fill:var(--ink2)}
+.rg rect{fill:color-mix(in srgb,var(--c) 20%,var(--surface));stroke:var(--c);stroke-width:1;transition:fill .25s,stroke .25s}
+.nd rect{fill:var(--surface2);stroke:var(--ink2);stroke-width:1}
+.ar{stroke:var(--fact);stroke-width:2;fill:none}
+.ar.cut{stroke:var(--split);stroke-dasharray:5 5;opacity:.55}
+@media (max-width:700px){
+  .layer{grid-template-columns:minmax(0,1fr);gap:12px}
+  .lh{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .lh .lq{flex-basis:100%;margin-top:0}
+  .three{grid-template-columns:minmax(0,1fr)}
+  .timebar a{font-size:11px}
+  .timebar a span{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.fig .sv{overflow-x:auto}
+.fig .sv svg{min-width:560px}
+
+.tlf{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.tlf button{font:inherit;font-size:14px;padding:6px 12px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);border-radius:8px;cursor:pointer}
+.tlf button[aria-pressed="true"]{background:var(--fact);border-color:var(--fact);color:var(--bg)}
+
+.note{margin:18px 0 6px;padding:14px 16px;background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--expl);border-radius:8px;font-size:14.5px}.note ul{margin:8px 0 0}.note li{margin-bottom:5px}
+
+.sum .lh{--c:var(--s-green)}.timebar .sum{--c:var(--s-green)}
+.sum .lb{background:color-mix(in srgb,var(--s-green) 8%,var(--surface));border-radius:8px;padding:12px 16px}
+</style></head><body><div class="wrap"><div class="top"><a class="brand" href="index.html">世界格局百年课</a><a class="nl" href="index.html" aria-current="page">课程</a><a class="nl" href="method.html">读法</a><a class="nl" href="oil.html">石油与家族</a><a class="nl" href="grievances.html">宿怨地图</a><a class="nl" href="reading.html">阅读</a><a class="nl" href="timeline.html">时间线</a><a class="nl" href="verification.html">核查记录</a></div><header class="dayhead"><div class="daynum">DAY 24 / 60 · 阶段 3</div><h1>原子弹与日本投降：怎么读这段历史</h1><p class="meta">1942–1945 · 约 10 分钟 · 二战与战后设计</p></header><nav class="timebar" aria-label="本日结构"><a class="fact" style="flex:2 1 0" href="#fact">事实层<span>2′</span></a><a class="prim" style="flex:1 1 0" href="#prim">一手材料<span>1′</span></a><a class="expl" style="flex:3 1 0" href="#expl">解释层<span>3′</span></a><a class="narr" style="flex:1 1 0" href="#narr">叙述层<span>1′</span></a><a class="cons" style="flex:2 1 0" href="#cons">后果<span>2′</span></a><a class="today" style="flex:1 1 0" href="#today">今天<span>1′</span></a></nav><section class="layer fact" id="fact"><div class="lh"><span class="ln">事实层</span><span class="lt">2 分钟</span><span class="lq">谁、何时、做了什么。可以回到文件核对。</span></div><div class="lb"><p class="src">依据：杜鲁门1945年8月6日声明（杜鲁门图书馆）、曼哈顿计划、广岛与长崎、日本投降的二手整理。</p><ul><li>曼哈顿工程区成立于1942年8月13日；格罗夫斯自1942年9月23日负责。1945年7月16日，三位一体试验。耗资约20亿美元，高峰时约13万人参与。<span class="tag t-ok">确证</span>（二手整理。）</li><li>7月25日的命令列出目标；7月26日的《波茨坦公告》没有提原子弹；7月28日，铃木首相的表态被盟国理解为拒绝。<span class="tag t-ok">确证</span>（二手整理。）</li><li>1945年8月6日，广岛（“小男孩”）；到年底，死亡约9万至16.6万人。8月9日，长崎（“胖子”）；死亡约6万至8万人。<span class="tag t-ok">确证</span>（二手整理；死亡估计范围大。）</li><li>苏联8月8日莫斯科时间下午5时宣战，9日零时刚过入侵；关东军16日正式投降；8月18日苏军在千岛群岛登陆。<span class="tag t-ok">确证</span>（二手整理。）</li><li>裕仁天皇在8月14日作出投降的决定，8月15日广播；9月2日签署《投降书》。<span class="tag t-ok">确证</span></li><li>目标委员会由格罗夫斯主持；京都因史汀生反对而被排除；曾考虑“演示”爆炸并否决；杜鲁门日记写到目标应当是军事目标。<span class="tag t-ok">确证</span>（二手整理；日记措辞本课程没有核对。）</li></ul></div></section>
+<section class="layer expl" id="expl"><div class="lh"><span class="ln">解释层</span><span class="lt">3 分钟</span><span class="lq">为什么这样做。证据和推断分开，分歧并列。</span></div><div class="lb"><p>这里要回答：日本为什么投降？原子弹和苏联参战各占多大作用？</p><p>学界的主要观点有三类。长谷川的研究认为苏联参战比原子弹更重要；阿尔佩罗维茨认为使用原子弹也有对苏联的威慑考虑；支持使用的人认为它缩短了战争、减少了登陆的伤亡。<span class="tag t-split">学界有分歧</span>本课程没有核对这三家的原文，只依据二手整理。<span class="tag t-pend">待核</span></p><p>可以比较的替代方案：封锁，和对“国体”（天皇地位）的保证。这些方案会不会让日本更早投降，史家的看法不同，没有定论。<span class="tag t-split">学界有分歧</span></p></div></section>
+<section class="layer prim" id="prim"><div class="lh"><span class="ln">一手材料</span><span class="lt">1 分钟</span><span class="lq">原文怎么写。只引已核对的原文；读法写在引文之后。</span></div><div class="lb"><p>来源：杜鲁门声明，1945年8月6日（杜鲁门图书馆）。已核对的片段：“十六个小时前，一架美国飞机在广岛投下了一枚炸弹”（sixteen hours ago an American airplane dropped one bomb on Hiroshima）；“这是一枚原子弹”（It is an atomic bomb）；“是对宇宙基本力量的利用”（a harnessing of the basic power of the universe）；“从空中降下毁灭之雨”（a rain of ruin from the air）。（本课程拟译。）读法：这是给公众的声明，强调的是科学成就和威慑，没有写伤亡，也没有写使用的决策过程。</p></div></section>
+<section class="layer narr" id="narr"><div class="lh"><span class="ln">叙述层</span><span class="lt">1 分钟</span><span class="lq">各方今天怎么讲这件事，用来做什么。</span></div><div class="lb"><p>美国流行的叙述是“原子弹结束了战争，拯救了无数生命”；日本的一些叙述强调受害；另一些叙述强调苏联参战。每一种都有证据支持一部分，但没有一种单独解释得了8月6日到8月15日这十天内的全部事件。<span class="tag t-nar">叙述</span></p></div></section>
+<section class="layer cons" id="cons"><div class="lh"><span class="ln">后果</span><span class="lt">2 分钟</span><span class="lq">谁得到了什么，谁失去了什么。</span></div><div class="lb"><p>核武器进入国际政治，战后的核竞争由此开始（后面的课程继续讲）。日本在盟军占领下重建；苏联取得了千岛群岛的实际控制，北方领土问题至今存在。<span class="tag t-pend">待核</span></p></div></section>
+<section class="layer today" id="today"><div class="lh"><span class="ln">今天与自测</span><span class="lt">1 分钟</span><span class="lq">和今天的连接，以及一道思考题。</span></div><div class="lb"><p>今天，核武器的使用与威慑仍然是国际安全的核心问题。</p><p class="think">思考题：在不看结果的情况下，你会怎样评价1945年的决策者当时可以得到的信息？哪些信息他们没有？</p></div></section>
+<p><button class="mark" id="mk" type="button" aria-pressed="false">标记为已读</button></p><script>(function(){var K="wo-read",N=24,b=document.getElementById("mk");function g(){try{return JSON.parse(localStorage.getItem(K)||"[]")}catch(e){return[]}}function s(a){try{localStorage.setItem(K,JSON.stringify(a))}catch(e){}}function r(){var on=g().indexOf(N)>-1;b.setAttribute("aria-pressed",on);b.textContent=on?"已读":"标记为已读"}b.onclick=function(){var a=g(),i=a.indexOf(N);if(i>-1)a.splice(i,1);else a.push(N);s(a);r()};r()})()</script><div class="pn"><a href="day23.html">← Day 23</a><a href="day25.html">Day 25 →</a></div><p class="foot">本课程由 AI（Claude）协助起草，经联网抽查（主要是二手资料），没有逐条核对档案原件。涉及具体数字、日期和引语的地方，请对照 <a href="reading.html">推荐阅读</a> 复核；已核查与未核实的条目见 <a href="verification.html">核查记录</a>。各段落的证据标记含义见 <a href="method.html">读法</a>。</p></div></body></html>

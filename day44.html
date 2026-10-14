@@ -1,0 +1,138 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Day 44 缓和：东方政策、尼克松访华与赫尔辛基</title><style>/* layout concept: a map-room atlas. Quiet slate ground; five layer colours carry meaning (fact, explanation, narrative, consequence, today). */
+:root{
+  --bg:#f1f3f6;--surface:#ffffff;--surface2:#e8ecf1;--ink:#1a2330;--ink2:#515d6d;--rule:#d3d9e1;
+  --fact:#1d5fa8;--expl:#a85f0c;--narr:#7a3b8f;--cons:#16766f;--today:#4a5668;--prim:#8a5a2b;
+  --ok:#2c7a4b;--self:#2f6f9a;--infer:#a85f0c;--split:#b3392f;--nar:#7a3b8f;--none:#6b7280;--pend:#b3392f;
+  --s-blue:#2f6fb5;--s-teal:#13857c;--s-purple:#7a54b8;--s-coral:#c8553a;--s-amber:#b27a12;--s-pink:#b8447a;--s-green:#4b8a2c;--s-gray:#6b7280;
+  --serif:"Noto Serif SC","Songti SC","Source Han Serif SC",serif;
+  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10151c;--surface:#171e28;--surface2:#1f2835;--ink:#e5e9ef;--ink2:#9ba7b8;--rule:#2b3646;
+  --fact:#6eaaf0;--expl:#e3a458;--narr:#c58ddb;--cons:#5cc5bb;--today:#a3afc0;--prim:#d1a574;
+  --ok:#6cc58d;--self:#74b3dd;--infer:#e3a458;--split:#ef8579;--nar:#c58ddb;--none:#9aa3b0;--pend:#ef8579;
+  --s-blue:#6aa6ec;--s-teal:#4cc3b8;--s-purple:#b093e8;--s-coral:#ee8a70;--s-amber:#e0b24d;--s-pink:#ea7fb0;--s-green:#8ac86a;--s-gray:#9aa3b0;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10151c;--surface:#171e28;--surface2:#1f2835;--ink:#e5e9ef;--ink2:#9ba7b8;--rule:#2b3646;
+  --fact:#6eaaf0;--expl:#e3a458;--narr:#c58ddb;--cons:#5cc5bb;--today:#a3afc0;--prim:#d1a574;
+  --ok:#6cc58d;--self:#74b3dd;--infer:#e3a458;--split:#ef8579;--nar:#c58ddb;--none:#9aa3b0;--pend:#ef8579;
+  --s-blue:#6aa6ec;--s-teal:#4cc3b8;--s-purple:#b093e8;--s-coral:#ee8a70;--s-amber:#e0b24d;--s-pink:#ea7fb0;--s-green:#8ac86a;--s-gray:#9aa3b0;
+  color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 var(--sans);padding-inline:16px;padding-block:0 56px}
+a{color:var(--fact);text-underline-offset:3px}
+a:hover{color:var(--ink)}
+.wrap{max-width:860px;margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;padding-block:14px;border-bottom:1px solid var(--rule);margin-bottom:28px}
+.brand{font:700 17px/1.2 var(--serif);color:var(--ink);text-decoration:none;margin-right:auto}
+.top a.nl{font-size:14px;color:var(--ink2);text-decoration:none}
+.top a.nl:hover,.top a.nl[aria-current]{color:var(--ink);text-decoration:underline}
+h1,h2,h3{font-family:var(--serif);line-height:1.35;text-wrap:balance;margin:0}
+h1{font-size:clamp(26px,5vw,38px);font-weight:700}
+h2{font-size:clamp(21px,3.4vw,26px);font-weight:700;margin-top:48px;margin-bottom:14px}
+h3{font-size:18px;font-weight:700;margin-top:30px;margin-bottom:10px}
+p{margin:0 0 14px}
+.lede{font-size:18px;color:var(--ink2);max-width:36em}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+.tag{display:inline-block;font:500 12px/1.5 var(--sans);padding:0 7px;border-radius:4px;margin:0 2px;vertical-align:1px;white-space:nowrap;color:var(--c);background:color-mix(in srgb,var(--c) 13%,transparent);border:1px solid color-mix(in srgb,var(--c) 38%,transparent)}
+.t-ok{--c:var(--ok)}.t-self{--c:var(--self)}.t-infer{--c:var(--infer)}.t-split{--c:var(--split)}.t-nar{--c:var(--nar)}.t-none{--c:var(--none)}.t-pend{--c:var(--pend)}
+.tw{overflow-x:auto;margin:0 0 20px;border:1px solid var(--rule);border-radius:8px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.5px;line-height:1.6}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--rule)}
+th{font-weight:600;color:var(--ink2);background:var(--surface2);font-size:13px;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+ul,ol{padding-left:1.3em;margin:0 0 16px}
+li{margin-bottom:7px}
+/* day page */
+.dayhead{padding-bottom:18px}
+.daynum{font:500 14px/1 var(--mono);letter-spacing:.14em;color:var(--ink2);margin-bottom:12px}
+.meta{margin:12px 0 0;color:var(--ink2);font-size:14px}
+.timebar{display:flex;gap:3px;margin:22px 0 8px;position:sticky;top:0;z-index:5;background:var(--bg);padding-block:8px}
+.timebar a{display:block;text-decoration:none;font-size:12px;line-height:1.2;color:var(--ink);padding-top:7px;border-top:4px solid var(--c);white-space:nowrap;overflow:hidden;text-overflow:clip}
+.timebar a span{display:block;color:var(--ink2);font-family:var(--mono);font-size:11px}
+.layer{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 28px;padding-block:28px;border-top:1px solid var(--rule);scroll-margin-top:60px}
+.lh{--c:var(--fact)}
+.lh .ln{display:block;font:700 20px/1.3 var(--serif);color:var(--c)}
+.lh .lt{display:block;font:500 12px/1.4 var(--mono);color:var(--ink2);margin-top:2px}
+.lh .lq{display:block;font-size:13px;line-height:1.5;color:var(--ink2);margin-top:8px}
+.prim .lh{--c:var(--prim)}.timebar .prim{--c:var(--prim)}
+.fact .lh{--c:var(--fact)}.expl .lh{--c:var(--expl)}.narr .lh{--c:var(--narr)}.cons .lh{--c:var(--cons)}.today .lh{--c:var(--today)}
+.timebar .fact{--c:var(--fact)}.timebar .expl{--c:var(--expl)}.timebar .narr{--c:var(--narr)}.timebar .cons{--c:var(--cons)}.timebar .today{--c:var(--today)}
+.lb{min-width:0;max-width:41em}
+.lb .src{font-size:14px;color:var(--ink2);padding:8px 12px;background:var(--surface2);border-radius:6px;margin-bottom:16px}
+.think{margin-top:6px;padding:14px 16px;background:var(--surface);border:1px solid var(--rule);border-radius:8px}
+.pn{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:36px;padding-top:20px;border-top:1px solid var(--rule)}
+.pn a{font-size:15px}
+.pn .off{color:var(--ink2)}
+button.mark{font:inherit;font-size:14px;padding:7px 14px;border-radius:8px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);cursor:pointer}
+button.mark[aria-pressed="true"]{border-color:var(--ok);color:var(--ok)}
+:focus-visible{outline:2px solid var(--fact);outline-offset:2px}
+.foot{margin-top:48px;font-size:13px;color:var(--ink2);border-top:1px solid var(--rule);padding-top:16px}
+/* index */
+.hero{padding-block:20px 8px}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:26px 0 8px}
+.three div{padding:14px 16px;background:var(--surface);border:1px solid var(--rule);border-radius:8px;border-top:4px solid var(--c)}
+.three b{display:block;font:700 17px/1.3 var(--serif);color:var(--c);margin-bottom:4px}
+.three span{font-size:14px;color:var(--ink2);line-height:1.6;display:block}
+.btn{display:inline-block;margin-top:18px;padding:10px 18px;background:var(--fact);color:var(--bg);border-radius:8px;text-decoration:none;font-weight:500}
+.btn:hover{color:var(--bg);opacity:.9}
+.stage{border-top:1px solid var(--rule);padding-block:6px}
+.stage>summary{cursor:pointer;list-style:none;padding:14px 0;display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.stage>summary::-webkit-details-marker{display:none}
+.stage .sn{font:500 13px/1 var(--mono);color:var(--ink2);min-width:3.4em}
+.stage .st{font:700 18px/1.4 var(--serif)}
+.stage .sd{font-size:13px;color:var(--ink2);margin-left:auto}
+.sq{font-size:14.5px;color:var(--ink2);margin:0 0 10px}
+.days{list-style:none;padding:0;margin:0 0 14px}
+.days li{display:grid;grid-template-columns:3.4em minmax(0,1fr);gap:4px 14px;padding:10px 0;margin:0;border-top:1px dashed var(--rule)}
+.days .dn{font:500 14px/1.7 var(--mono);color:var(--ink2)}
+.days .dt{font-size:15px;line-height:1.7}
+.days .dt a{font-weight:600}
+.days .dm{display:block;font-size:13.5px;color:var(--ink2);margin-top:3px}
+.days .pend{font-size:12px;color:var(--ink2);border:1px solid var(--rule);border-radius:4px;padding:0 6px;margin-left:6px;white-space:nowrap}
+.days .done{color:var(--ok);margin-left:6px;font-size:13px}
+/* figures */
+.fig{margin:6px 0 20px;padding:14px;background:var(--surface);border:1px solid var(--rule);border-radius:8px}
+.fig .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.fig button.tb{font:inherit;font-size:14px;padding:6px 12px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);border-radius:8px;cursor:pointer}
+.fig button.tb[aria-pressed="true"]{background:var(--fact);border-color:var(--fact);color:var(--bg)}
+.fig .cap{font-size:14px;color:var(--ink2);margin:8px 0 0;line-height:1.7}
+.fig svg{display:block;width:100%;height:auto}
+.fig svg text{font-family:var(--sans);fill:var(--ink)}
+.fig svg .th{font-size:14px;font-weight:600}
+.fig svg .ts{font-size:12px;fill:var(--ink2)}
+.rg rect{fill:color-mix(in srgb,var(--c) 20%,var(--surface));stroke:var(--c);stroke-width:1;transition:fill .25s,stroke .25s}
+.nd rect{fill:var(--surface2);stroke:var(--ink2);stroke-width:1}
+.ar{stroke:var(--fact);stroke-width:2;fill:none}
+.ar.cut{stroke:var(--split);stroke-dasharray:5 5;opacity:.55}
+@media (max-width:700px){
+  .layer{grid-template-columns:minmax(0,1fr);gap:12px}
+  .lh{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .lh .lq{flex-basis:100%;margin-top:0}
+  .three{grid-template-columns:minmax(0,1fr)}
+  .timebar a{font-size:11px}
+  .timebar a span{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.fig .sv{overflow-x:auto}
+.fig .sv svg{min-width:560px}
+
+.tlf{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.tlf button{font:inherit;font-size:14px;padding:6px 12px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);border-radius:8px;cursor:pointer}
+.tlf button[aria-pressed="true"]{background:var(--fact);border-color:var(--fact);color:var(--bg)}
+
+.note{margin:18px 0 6px;padding:14px 16px;background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--expl);border-radius:8px;font-size:14.5px}.note ul{margin:8px 0 0}.note li{margin-bottom:5px}
+
+.sum .lh{--c:var(--s-green)}.timebar .sum{--c:var(--s-green)}
+.sum .lb{background:color-mix(in srgb,var(--s-green) 8%,var(--surface));border-radius:8px;padding:12px 16px}
+</style></head><body><div class="wrap"><div class="top"><a class="brand" href="index.html">世界格局百年课</a><a class="nl" href="index.html" aria-current="page">课程</a><a class="nl" href="method.html">读法</a><a class="nl" href="oil.html">石油与家族</a><a class="nl" href="grievances.html">宿怨地图</a><a class="nl" href="reading.html">阅读</a><a class="nl" href="timeline.html">时间线</a><a class="nl" href="verification.html">核查记录</a></div><header class="dayhead"><div class="daynum">DAY 44 / 60 · 阶段 6</div><h1>缓和：东方政策、尼克松访华与赫尔辛基</h1><p class="meta">1969–1975 · 约 10 分钟 · 缓和、危机与冷战终结</p></header><nav class="timebar" aria-label="本日结构"><a class="fact" style="flex:2 1 0" href="#fact">事实层<span>2′</span></a><a class="prim" style="flex:1 1 0" href="#prim">一手材料<span>1′</span></a><a class="expl" style="flex:3 1 0" href="#expl">解释层<span>3′</span></a><a class="narr" style="flex:1 1 0" href="#narr">叙述层<span>1′</span></a><a class="cons" style="flex:2 1 0" href="#cons">后果<span>2′</span></a><a class="today" style="flex:1 1 0" href="#today">今天<span>1′</span></a><a class="sum" style="flex:1 1 0" href="#sum">白话总结<span>1′</span></a></nav><section class="layer fact" id="fact"><div class="lh"><span class="ln">事实层</span><span class="lt">2 分钟</span><span class="lq">谁、何时、做了什么。可以回到文件核对。</span></div><div class="lb"><p class="src">依据：美国国务院历史办公室关于中美和解、SALT的页面，东方政策与赫尔辛基协议的二手整理，赫尔辛基最后文件英文原文片段（欧安组织页面）。</p><ul><li>1969年，勃兰特成为联邦德国总理。1970年8月12日签订《莫斯科条约》：放弃使用武力，承认现有欧洲边界。1970年12月7日签订《华沙条约》：承认波兰，确认奥得—尼斯河边界。1971年勃兰特获诺贝尔和平奖。1972年12月21日签订《基础条约》：两个德国建立正式关系。<span class="tag t-ok">确证</span>（二手整理。）</li><li>1972年4月，反对党领袖巴泽尔提出的建设性不信任案以两票之差失败。二手页面写：后来发现东德买通了两名基民盟议员投反对票。这一说法本课程没有核对。<span class="tag t-pend">待核</span>1972年11月大选，勃兰特的政府获胜。</li><li>1971年，基辛格秘密访华，10月又去了第二次。1972年2月21日至28日，尼克松访华，会见毛泽东和周恩来，结束时发表上海公报。公报确立的原则，后来成为1979年中美正式建交的基础。<span class="tag t-ok">确证</span>（据国务院页面。）</li><li>1972年5月26日，尼克松与勃列日涅夫在莫斯科签署《反弹道导弹条约》和SALT I临时协定。《反弹道导弹条约》限定每方拦截弹200枚，另允许各建两处防御设施。临时协定的具体内容，以及批准情况，本课程没有核对。<span class="tag t-pend">待核</span></li><li>1975年8月1日，35个国家的首脑在赫尔辛基签署最后文件（当天是会议第三阶段闭幕）。它不是条约，不需要议会批准。文件有十项原则，还有经济合作、人员往来等部分。<span class="tag t-ok">确证</span>（二手整理。）</li></ul></div></section>
+<section class="layer expl" id="expl"><div class="lh"><span class="ln">解释层</span><span class="lt">3 分钟</span><span class="lq">为什么这样做。证据和推断分开，分歧并列。</span></div><div class="lb"><p>这里要回答：缓和是谁占了便宜？</p><p>先说一个前提：缓和不是谁变好了，而是各人算各人的账。西德承认战后边界，换来的是和东方国家来往的空间，以及两个德国之间的正式关系。这是条约写明的内容；勃兰特的真实盘算，本课程没有读到他的文件。<span class="tag t-pend">待核</span></p><p>再看中美。尼克松和毛泽东各自要什么，页面没有写。“美国打开中国这一面，对苏联就多了一张牌”，这是常见的“三角外交”说法，不是页面的原话。<span class="tag t-infer">学者推断</span></p><p>再看赫尔辛基。苏联要的是战后边界被确认：二手页面写，边界和领土完整的条款，被看作巩固了苏联在中欧的战后所得。西方要的是人权和人员往来的条款。结果是两边各拿了一半。后来这些人权条款，成了赫尔辛基监督小组和“七七宪章”引用的依据（二手页面）。<span class="tag t-ok">确证</span>（二手整理。）</p><p>最后是国内的反对声。在美国，东欧裔美国人担心这等于承认苏联统治东欧；里根在1976年初选里攻击这份文件，卡特在大选中也攻击它，福特在1976年10月电视辩论里说出“苏联并不统治东欧”，对他很不利（二手页面）。<span class="tag t-ok">确证</span>（二手整理。）</p></div></section>
+<section class="layer prim" id="prim"><div class="lh"><span class="ln">一手材料</span><span class="lt">1 分钟</span><span class="lq">原文怎么写。只引已核对的原文；读法写在引文之后。</span></div><div class="lb"><p>来源：赫尔辛基最后文件英文原文（欧安组织页面，PDF）。已核对的片段：原则三：“The participating States regard as inviolable all one another&#x27;s frontiers”（本课程拟译：“参加国视彼此的全部边界为不可侵犯”）。原则一：“They consider that their frontiers can be changed, in accordance with international law, by peaceful means and by agreement.”（本课程拟译：“它们认为，边界可以依国际法，通过和平手段并经协议加以改变。”）读法：同一份文件里，一句把边界锁住，一句留了口子。苏联和西方各抓一句来用。这只是条文的读法；各方后来怎么用，要看各方的行动。德国统一（Day 47）是“和平手段加协议”的一个例子，这是本课程的推论。<span class="tag t-infer">学者推断</span></p></div></section>
+<section class="layer narr" id="narr"><div class="lh"><span class="ln">叙述层</span><span class="lt">1 分钟</span><span class="lq">各方今天怎么讲这件事，用来做什么。</span></div><div class="lb"><p>苏联的宣传把赫尔辛基说成勃列日涅夫的胜利（二手页面）。西方有些人说它是“出卖东欧”。后来也有人说，它最大的作用是给东欧的异见者递了一把钥匙：人权条款是苏联自己签的字。这三种说法各看一头，哪一头更重，要看你站在哪一年往回看。<span class="tag t-nar">叙述</span></p></div></section>
+<section class="layer cons" id="cons"><div class="lh"><span class="ln">后果</span><span class="lt">2 分钟</span><span class="lq">谁得到了什么，谁失去了什么。</span></div><div class="lb"><p>缓和并没有让军备停下来。《反弹道导弹条约》限制的是防御；SALT I对进攻武器的限制，本课程没有核对到细节。<span class="tag t-pend">待核</span>1979年苏联入侵阿富汗（Day 45），缓和基本破裂。</p></div></section>
+<section class="layer today" id="today"><div class="lh"><span class="ln">今天与自测</span><span class="lt">1 分钟</span><span class="lq">和今天的连接，以及一道思考题。</span></div><div class="lb"><p>今天，“对话”和“施压”哪个更能改变一个对手，仍是外交争论的核心。</p><p class="think">思考题：一份“不算条约”的文件，为什么仍然能约束签字的人？</p></div></section>
+<section class="layer sum" id="sum"><div class="lh"><span class="ln">白话总结</span><span class="lt">1 分钟</span><span class="lq">用大白话把今天这件事说一遍。</span></div><div class="lb"><p>1970年代的缓和，是几件事凑在一起：西德跟东边达成了边界和来往的协议，美国和中国握了手，美苏签了限制导弹防御的条约，35国又在赫尔辛基签了一份“欧洲安全”文件。每个国家都在算自己的账：有人要边界稳定，有人要人权条款，有人要在大国之间多一张牌。缓和没有消灭对抗，只是把对抗放进了谈判桌，一直到阿富汗战争才被打破。</p></div></section>
+<p><button class="mark" id="mk" type="button" aria-pressed="false">标记为已读</button></p><script>(function(){var K="wo-read",N=44,b=document.getElementById("mk");function g(){try{return JSON.parse(localStorage.getItem(K)||"[]")}catch(e){return[]}}function s(a){try{localStorage.setItem(K,JSON.stringify(a))}catch(e){}}function r(){var on=g().indexOf(N)>-1;b.setAttribute("aria-pressed",on);b.textContent=on?"已读":"标记为已读"}b.onclick=function(){var a=g(),i=a.indexOf(N);if(i>-1)a.splice(i,1);else a.push(N);s(a);r()};r()})()</script><div class="pn"><a href="day43.html">← Day 43</a><a href="day45.html">Day 45 →</a></div><p class="foot">本课程由 AI（Claude）协助起草，经联网抽查（主要是二手资料），没有逐条核对档案原件。涉及具体数字、日期和引语的地方，请对照 <a href="reading.html">推荐阅读</a> 复核；已核查与未核实的条目见 <a href="verification.html">核查记录</a>。各段落的证据标记含义见 <a href="method.html">读法</a>。</p></div></body></html>

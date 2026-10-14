@@ -1,0 +1,137 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Day 18 租借法案、大西洋宪章与巴巴罗萨</title><style>/* layout concept: a map-room atlas. Quiet slate ground; five layer colours carry meaning (fact, explanation, narrative, consequence, today). */
+:root{
+  --bg:#f1f3f6;--surface:#ffffff;--surface2:#e8ecf1;--ink:#1a2330;--ink2:#515d6d;--rule:#d3d9e1;
+  --fact:#1d5fa8;--expl:#a85f0c;--narr:#7a3b8f;--cons:#16766f;--today:#4a5668;--prim:#8a5a2b;
+  --ok:#2c7a4b;--self:#2f6f9a;--infer:#a85f0c;--split:#b3392f;--nar:#7a3b8f;--none:#6b7280;--pend:#b3392f;
+  --s-blue:#2f6fb5;--s-teal:#13857c;--s-purple:#7a54b8;--s-coral:#c8553a;--s-amber:#b27a12;--s-pink:#b8447a;--s-green:#4b8a2c;--s-gray:#6b7280;
+  --serif:"Noto Serif SC","Songti SC","Source Han Serif SC",serif;
+  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10151c;--surface:#171e28;--surface2:#1f2835;--ink:#e5e9ef;--ink2:#9ba7b8;--rule:#2b3646;
+  --fact:#6eaaf0;--expl:#e3a458;--narr:#c58ddb;--cons:#5cc5bb;--today:#a3afc0;--prim:#d1a574;
+  --ok:#6cc58d;--self:#74b3dd;--infer:#e3a458;--split:#ef8579;--nar:#c58ddb;--none:#9aa3b0;--pend:#ef8579;
+  --s-blue:#6aa6ec;--s-teal:#4cc3b8;--s-purple:#b093e8;--s-coral:#ee8a70;--s-amber:#e0b24d;--s-pink:#ea7fb0;--s-green:#8ac86a;--s-gray:#9aa3b0;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10151c;--surface:#171e28;--surface2:#1f2835;--ink:#e5e9ef;--ink2:#9ba7b8;--rule:#2b3646;
+  --fact:#6eaaf0;--expl:#e3a458;--narr:#c58ddb;--cons:#5cc5bb;--today:#a3afc0;--prim:#d1a574;
+  --ok:#6cc58d;--self:#74b3dd;--infer:#e3a458;--split:#ef8579;--nar:#c58ddb;--none:#9aa3b0;--pend:#ef8579;
+  --s-blue:#6aa6ec;--s-teal:#4cc3b8;--s-purple:#b093e8;--s-coral:#ee8a70;--s-amber:#e0b24d;--s-pink:#ea7fb0;--s-green:#8ac86a;--s-gray:#9aa3b0;
+  color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 var(--sans);padding-inline:16px;padding-block:0 56px}
+a{color:var(--fact);text-underline-offset:3px}
+a:hover{color:var(--ink)}
+.wrap{max-width:860px;margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;padding-block:14px;border-bottom:1px solid var(--rule);margin-bottom:28px}
+.brand{font:700 17px/1.2 var(--serif);color:var(--ink);text-decoration:none;margin-right:auto}
+.top a.nl{font-size:14px;color:var(--ink2);text-decoration:none}
+.top a.nl:hover,.top a.nl[aria-current]{color:var(--ink);text-decoration:underline}
+h1,h2,h3{font-family:var(--serif);line-height:1.35;text-wrap:balance;margin:0}
+h1{font-size:clamp(26px,5vw,38px);font-weight:700}
+h2{font-size:clamp(21px,3.4vw,26px);font-weight:700;margin-top:48px;margin-bottom:14px}
+h3{font-size:18px;font-weight:700;margin-top:30px;margin-bottom:10px}
+p{margin:0 0 14px}
+.lede{font-size:18px;color:var(--ink2);max-width:36em}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+.tag{display:inline-block;font:500 12px/1.5 var(--sans);padding:0 7px;border-radius:4px;margin:0 2px;vertical-align:1px;white-space:nowrap;color:var(--c);background:color-mix(in srgb,var(--c) 13%,transparent);border:1px solid color-mix(in srgb,var(--c) 38%,transparent)}
+.t-ok{--c:var(--ok)}.t-self{--c:var(--self)}.t-infer{--c:var(--infer)}.t-split{--c:var(--split)}.t-nar{--c:var(--nar)}.t-none{--c:var(--none)}.t-pend{--c:var(--pend)}
+.tw{overflow-x:auto;margin:0 0 20px;border:1px solid var(--rule);border-radius:8px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.5px;line-height:1.6}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--rule)}
+th{font-weight:600;color:var(--ink2);background:var(--surface2);font-size:13px;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+ul,ol{padding-left:1.3em;margin:0 0 16px}
+li{margin-bottom:7px}
+/* day page */
+.dayhead{padding-bottom:18px}
+.daynum{font:500 14px/1 var(--mono);letter-spacing:.14em;color:var(--ink2);margin-bottom:12px}
+.meta{margin:12px 0 0;color:var(--ink2);font-size:14px}
+.timebar{display:flex;gap:3px;margin:22px 0 8px;position:sticky;top:0;z-index:5;background:var(--bg);padding-block:8px}
+.timebar a{display:block;text-decoration:none;font-size:12px;line-height:1.2;color:var(--ink);padding-top:7px;border-top:4px solid var(--c);white-space:nowrap;overflow:hidden;text-overflow:clip}
+.timebar a span{display:block;color:var(--ink2);font-family:var(--mono);font-size:11px}
+.layer{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 28px;padding-block:28px;border-top:1px solid var(--rule);scroll-margin-top:60px}
+.lh{--c:var(--fact)}
+.lh .ln{display:block;font:700 20px/1.3 var(--serif);color:var(--c)}
+.lh .lt{display:block;font:500 12px/1.4 var(--mono);color:var(--ink2);margin-top:2px}
+.lh .lq{display:block;font-size:13px;line-height:1.5;color:var(--ink2);margin-top:8px}
+.prim .lh{--c:var(--prim)}.timebar .prim{--c:var(--prim)}
+.fact .lh{--c:var(--fact)}.expl .lh{--c:var(--expl)}.narr .lh{--c:var(--narr)}.cons .lh{--c:var(--cons)}.today .lh{--c:var(--today)}
+.timebar .fact{--c:var(--fact)}.timebar .expl{--c:var(--expl)}.timebar .narr{--c:var(--narr)}.timebar .cons{--c:var(--cons)}.timebar .today{--c:var(--today)}
+.lb{min-width:0;max-width:41em}
+.lb .src{font-size:14px;color:var(--ink2);padding:8px 12px;background:var(--surface2);border-radius:6px;margin-bottom:16px}
+.think{margin-top:6px;padding:14px 16px;background:var(--surface);border:1px solid var(--rule);border-radius:8px}
+.pn{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:36px;padding-top:20px;border-top:1px solid var(--rule)}
+.pn a{font-size:15px}
+.pn .off{color:var(--ink2)}
+button.mark{font:inherit;font-size:14px;padding:7px 14px;border-radius:8px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);cursor:pointer}
+button.mark[aria-pressed="true"]{border-color:var(--ok);color:var(--ok)}
+:focus-visible{outline:2px solid var(--fact);outline-offset:2px}
+.foot{margin-top:48px;font-size:13px;color:var(--ink2);border-top:1px solid var(--rule);padding-top:16px}
+/* index */
+.hero{padding-block:20px 8px}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:26px 0 8px}
+.three div{padding:14px 16px;background:var(--surface);border:1px solid var(--rule);border-radius:8px;border-top:4px solid var(--c)}
+.three b{display:block;font:700 17px/1.3 var(--serif);color:var(--c);margin-bottom:4px}
+.three span{font-size:14px;color:var(--ink2);line-height:1.6;display:block}
+.btn{display:inline-block;margin-top:18px;padding:10px 18px;background:var(--fact);color:var(--bg);border-radius:8px;text-decoration:none;font-weight:500}
+.btn:hover{color:var(--bg);opacity:.9}
+.stage{border-top:1px solid var(--rule);padding-block:6px}
+.stage>summary{cursor:pointer;list-style:none;padding:14px 0;display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.stage>summary::-webkit-details-marker{display:none}
+.stage .sn{font:500 13px/1 var(--mono);color:var(--ink2);min-width:3.4em}
+.stage .st{font:700 18px/1.4 var(--serif)}
+.stage .sd{font-size:13px;color:var(--ink2);margin-left:auto}
+.sq{font-size:14.5px;color:var(--ink2);margin:0 0 10px}
+.days{list-style:none;padding:0;margin:0 0 14px}
+.days li{display:grid;grid-template-columns:3.4em minmax(0,1fr);gap:4px 14px;padding:10px 0;margin:0;border-top:1px dashed var(--rule)}
+.days .dn{font:500 14px/1.7 var(--mono);color:var(--ink2)}
+.days .dt{font-size:15px;line-height:1.7}
+.days .dt a{font-weight:600}
+.days .dm{display:block;font-size:13.5px;color:var(--ink2);margin-top:3px}
+.days .pend{font-size:12px;color:var(--ink2);border:1px solid var(--rule);border-radius:4px;padding:0 6px;margin-left:6px;white-space:nowrap}
+.days .done{color:var(--ok);margin-left:6px;font-size:13px}
+/* figures */
+.fig{margin:6px 0 20px;padding:14px;background:var(--surface);border:1px solid var(--rule);border-radius:8px}
+.fig .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.fig button.tb{font:inherit;font-size:14px;padding:6px 12px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);border-radius:8px;cursor:pointer}
+.fig button.tb[aria-pressed="true"]{background:var(--fact);border-color:var(--fact);color:var(--bg)}
+.fig .cap{font-size:14px;color:var(--ink2);margin:8px 0 0;line-height:1.7}
+.fig svg{display:block;width:100%;height:auto}
+.fig svg text{font-family:var(--sans);fill:var(--ink)}
+.fig svg .th{font-size:14px;font-weight:600}
+.fig svg .ts{font-size:12px;fill:var(--ink2)}
+.rg rect{fill:color-mix(in srgb,var(--c) 20%,var(--surface));stroke:var(--c);stroke-width:1;transition:fill .25s,stroke .25s}
+.nd rect{fill:var(--surface2);stroke:var(--ink2);stroke-width:1}
+.ar{stroke:var(--fact);stroke-width:2;fill:none}
+.ar.cut{stroke:var(--split);stroke-dasharray:5 5;opacity:.55}
+@media (max-width:700px){
+  .layer{grid-template-columns:minmax(0,1fr);gap:12px}
+  .lh{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .lh .lq{flex-basis:100%;margin-top:0}
+  .three{grid-template-columns:minmax(0,1fr)}
+  .timebar a{font-size:11px}
+  .timebar a span{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.fig .sv{overflow-x:auto}
+.fig .sv svg{min-width:560px}
+
+.tlf{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.tlf button{font:inherit;font-size:14px;padding:6px 12px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);border-radius:8px;cursor:pointer}
+.tlf button[aria-pressed="true"]{background:var(--fact);border-color:var(--fact);color:var(--bg)}
+
+.note{margin:18px 0 6px;padding:14px 16px;background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--expl);border-radius:8px;font-size:14.5px}.note ul{margin:8px 0 0}.note li{margin-bottom:5px}
+
+.sum .lh{--c:var(--s-green)}.timebar .sum{--c:var(--s-green)}
+.sum .lb{background:color-mix(in srgb,var(--s-green) 8%,var(--surface));border-radius:8px;padding:12px 16px}
+</style></head><body><div class="wrap"><div class="top"><a class="brand" href="index.html">世界格局百年课</a><a class="nl" href="index.html" aria-current="page">课程</a><a class="nl" href="method.html">读法</a><a class="nl" href="oil.html">石油与家族</a><a class="nl" href="grievances.html">宿怨地图</a><a class="nl" href="reading.html">阅读</a><a class="nl" href="timeline.html">时间线</a><a class="nl" href="verification.html">核查记录</a></div><header class="dayhead"><div class="daynum">DAY 18 / 60 · 阶段 3</div><h1>租借法案、大西洋宪章与巴巴罗萨</h1><p class="meta">1941 · 约 10 分钟 · 二战与战后设计</p></header><nav class="timebar" aria-label="本日结构"><a class="fact" style="flex:2 1 0" href="#fact">事实层<span>2′</span></a><a class="prim" style="flex:1 1 0" href="#prim">一手材料<span>1′</span></a><a class="expl" style="flex:3 1 0" href="#expl">解释层<span>3′</span></a><a class="narr" style="flex:1 1 0" href="#narr">叙述层<span>1′</span></a><a class="cons" style="flex:2 1 0" href="#cons">后果<span>2′</span></a><a class="today" style="flex:1 1 0" href="#today">今天<span>1′</span></a></nav><section class="layer fact" id="fact"><div class="lh"><span class="ln">事实层</span><span class="lt">2 分钟</span><span class="lq">谁、何时、做了什么。可以回到文件核对。</span></div><div class="lb"><p class="src">依据：《租借法》（美国国家档案馆页面）、大西洋宪章文本（耶鲁大学阿瓦隆档案）、租借援助与巴巴罗萨的二手整理。</p><ul><li>1939年的《中立法》允许“现购自运”，英国用黄金付款。到1941年，英国已出售大量海外资产，黄金储备在下降。<span class="tag t-ok">确证</span>（二手整理。）</li><li>1941年3月11日，罗斯福签署《租借法》：总统可以向“其防务被总统认为对美国防务至关重要的任何国家”提供援助；偿还条件由总统认为满意的方式决定，可以是实物，也可以是其他直接或间接的利益。<span class="tag t-ok">确证</span></li><li>1941年6月22日凌晨约3时15分，德国进攻苏联（巴巴罗萨行动），战线约2900公里，轴心国投入约380万人。英国情报早在1940年8月就向苏联预警，斯大林不信任英国，没有采信。<span class="tag t-ok">确证</span>（二手整理。）</li><li>1941年8月14日，罗斯福和丘吉尔在纽芬兰海面的普拉森舍湾（Placentia Bay）发表大西洋宪章。二手页面说，没有签字的文本留存。<span class="tag t-ok">确证</span></li><li>租借援助的总额，二手页面的正文给出约501亿美元，表格相加约484亿，两者不一致。英国及其帝国约314亿，苏联约113亿（表格约110亿）；美国得到的反向租借约78亿。<span class="tag t-ok">确证</span>（二手整理，口径不一。）</li><li>1942年2月英美《互助协定》提供不要求商业付款的援助。该协定第七条的内容，本课程没有核对。<span class="tag t-pend">待核</span></li></ul></div></section>
+<section class="layer expl" id="expl"><div class="lh"><span class="ln">解释层</span><span class="lt">3 分钟</span><span class="lq">为什么这样做。证据和推断分开，分歧并列。</span></div><div class="lb"><p>这里要回答：英国为美援付出了什么？</p><p>先看付款方式的变化。在《租借法》之前，英国要用黄金和出售海外资产付款；《租借法》之后，英国不必立即付现。这使英国能继续作战，但战争结束时，英国的海外资产和外汇储备已所剩不多（Day 22 会回到这个问题）。<span class="tag t-infer">学者推断</span></p><p>再看大西洋宪章。第四条说，各国应平等进入世界贸易和原料，并“适当尊重现有义务”；第三条说，尊重各国人民选择政府形式的权利。丘吉尔在1941年9月的一次讲话中说，宪章适用于被德国占领的国家，不适用于英国统治的地区（二手页面；具体日期与场合本课程没有核对）。<span class="tag t-pend">待核</span></p><p>宪章与帝国特惠制的关系，课程大纲写成“英国为美援付出的汇率与帝国特惠制代价”。所查页面没有说明英国当时是否因第四条而反对，也没有写明汇率的具体安排。这两点，本课程没有找到可核对的材料。<span class="tag t-pend">待核</span></p></div></section>
+<section class="layer prim" id="prim"><div class="lh"><span class="ln">一手材料</span><span class="lt">1 分钟</span><span class="lq">原文怎么写。只引已核对的原文；读法写在引文之后。</span></div><div class="lb"><p>来源一：《租借法》，1941年3月11日（美国国家档案馆页面）。总统可以向“任何其防务被总统认为对美国防务至关重要的国家”提供援助（any country whose defense the President deems vital to the defense of the United States）。</p><p>来源二：大西洋宪章，1941年8月14日（耶鲁大学阿瓦隆档案）。第三条：尊重“所有人民选择其所愿生活于其下的政府形式的权利”（the right of all peoples to choose the form of government under which they will live）。第四条：各国平等进入世界贸易和原料，同时“适当尊重现有义务”（due respect for their existing obligations）。（本课程拟译。）读法：第四条里“现有义务”一语，给帝国特惠制留下了解释的空间，这是推断，条文没有提到帝国特惠制。<span class="tag t-infer">学者推断</span>第三条没有说明“所有人民”指哪些人，丘吉尔后来作了限制性的解释。</p></div></section>
+<section class="layer narr" id="narr"><div class="lh"><span class="ln">叙述层</span><span class="lt">1 分钟</span><span class="lq">各方今天怎么讲这件事，用来做什么。</span></div><div class="lb"><p>大西洋宪章常被说成战后秩序的蓝图。事实是：它没有签字文本；丘吉尔很快限制了第三条的适用范围；对不同的听众，它的意思并不一样。同样，“租借法案让美国成为民主国家的兵工厂”这类说法强调的是援助，而对受援国得到了什么、付出了什么的细节说得很少。<span class="tag t-nar">叙述</span></p></div></section>
+<section class="layer cons" id="cons"><div class="lh"><span class="ln">后果</span><span class="lt">2 分钟</span><span class="lq">谁得到了什么，谁失去了什么。</span></div><div class="lb"><p>1945年8月日本投降后，租借援助终止（二手页面对具体日期有不同说法，其中一个是8月21日）。英国失去了依靠租借获得的食品和必需品，战后收支面临危机。1946年，美国向英国提供37.5亿美元贷款，年利率2%；英镑在1947年7月15日恢复可兑换，一个月内，持有者从英国的美元储备中提走近10亿美元，政府只好暂停兑换；英镑在1949年贬值。这笔贷款最后一次还款在2006年12月29日。<span class="tag t-ok">确证</span>（二手整理；与Day 22相互参照。）</p></div></section>
+<section class="layer today" id="today"><div class="lh"><span class="ln">今天与自测</span><span class="lt">1 分钟</span><span class="lq">和今天的连接，以及一道思考题。</span></div><div class="lb"><p>今天“援助”和“条件”之间的关系仍然是各国谈判的核心。</p><p class="think">思考题：租借援助不要求立即付款，为什么仍然会对英国产生长期的影响？</p></div></section>
+<p><button class="mark" id="mk" type="button" aria-pressed="false">标记为已读</button></p><script>(function(){var K="wo-read",N=18,b=document.getElementById("mk");function g(){try{return JSON.parse(localStorage.getItem(K)||"[]")}catch(e){return[]}}function s(a){try{localStorage.setItem(K,JSON.stringify(a))}catch(e){}}function r(){var on=g().indexOf(N)>-1;b.setAttribute("aria-pressed",on);b.textContent=on?"已读":"标记为已读"}b.onclick=function(){var a=g(),i=a.indexOf(N);if(i>-1)a.splice(i,1);else a.push(N);s(a);r()};r()})()</script><div class="pn"><a href="day17.html">← Day 17</a><a href="day19.html">Day 19 →</a></div><p class="foot">本课程由 AI（Claude）协助起草，经联网抽查（主要是二手资料），没有逐条核对档案原件。涉及具体数字、日期和引语的地方，请对照 <a href="reading.html">推荐阅读</a> 复核；已核查与未核实的条目见 <a href="verification.html">核查记录</a>。各段落的证据标记含义见 <a href="method.html">读法</a>。</p></div></body></html>
